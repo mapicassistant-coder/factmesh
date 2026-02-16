@@ -58,7 +58,7 @@ IMPORTANT RULES:
 def resolve_claims_batch(
     claims: list[dict],
     tables: dict[str, dict],
-    batch_size: int = 10,
+    batch_size: int = 5,
     api_key: str | None = None,
 ) -> list[ClaimResolution]:
     """
@@ -66,7 +66,7 @@ def resolve_claims_batch(
 
     Only processes claims that have numeric values (skips qualitative).
     """
-    client = OpenAI(api_key=api_key or os.environ.get("OPENAI_API_KEY"))
+    client = OpenAI(api_key=api_key or os.environ.get("OPENAI_API_KEY"), timeout=60.0)
 
     # Build compact table representation
     table_summary = _build_table_context(tables)
@@ -83,6 +83,19 @@ def resolve_claims_batch(
 
     for batch_start in range(0, len(numeric_claims), batch_size):
         batch = numeric_claims[batch_start:batch_start + batch_size]
+
+        # Collect relevant tables for this batch
+        relevant_table_ids = set()
+        # Always include the main macro tables
+        core_tables = {"Table_1_p15", "Table_1_p49", "Table_3_p23", "Table_4_p47", "Table_9_p52", "Table_13_p58"}
+        relevant_table_ids.update(core_tables & set(tables.keys()))
+        for _, claim in batch:
+            lt = claim.get("likely_table", "unknown")
+            if lt != "unknown" and lt in tables:
+                relevant_table_ids.add(lt)
+
+        batch_tables = {tid: tables[tid] for tid in relevant_table_ids}
+        batch_table_summary = _build_table_context(batch_tables)
 
         claims_text = []
         for idx, (claim_idx, claim) in enumerate(batch):
@@ -101,7 +114,7 @@ CLAIMS:
 {chr(10).join(claims_text)}
 
 TABLES:
-{table_summary}
+{batch_table_summary}
 
 For each claim, find the exact table cell for each value. Return a ClaimResolution for each claim."""
 
