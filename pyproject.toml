@@ -1,5 +1,5 @@
 [project]
-name = "macroproof"
+name = "factmesh"
 version = "0.1.0"
 description = "Automated macro-consistency verification for IMF Staff Reports."
 requires-python = ">=3.11"

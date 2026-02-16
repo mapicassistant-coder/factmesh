@@ -1,14 +1,14 @@
-# MacroProof
+# FactMesh
 
 **Automated macro-consistency verification for IMF Staff Reports.**
 
-MacroProof takes the structured output of a PDF extraction pipeline (tables + narrative claims) and builds a verification graph that connects what the text says to what the tables show — then checks if they agree.
+FactMesh takes the structured output of a PDF extraction pipeline (tables + narrative claims) and builds a verification graph that connects what the text says to what the tables show — then checks if they agree.
 
 ## Why this matters
 
 Every IMF Staff Report contains hundreds of quantitative claims woven through narrative text, each implicitly referencing data in statistical tables. Today, verifying consistency between narrative and tables is **entirely manual** — economists read the text, find the table, locate the cell, check the number. For a 150-page report with 100+ claims and 20+ tables, this takes hours and errors slip through.
 
-MacroProof automates this first layer of verification.
+FactMesh automates this first layer of verification.
 
 ## The bigger picture
 
@@ -84,7 +84,7 @@ Each node builds on the previous one. Node 1 is the foundation — if we can't r
 
 ## Input format
 
-MacroProof expects the output of [pdf_engineer](https://github.com/xsusyagez/pdf_engineer):
+FactMesh expects the output of [pdf_engineer](https://github.com/xsusyagez/pdf_engineer):
 
 ```
 input/SYC2024_Staff_Report/
@@ -109,7 +109,7 @@ output/SYC2024_Staff_Report/
 
 ```bash
 uv sync
-uv run python -m macroproof input/SYC2024_Staff_Report/
+uv run python -m factmesh input/SYC2024_Staff_Report/
 ```
 
 ## Status

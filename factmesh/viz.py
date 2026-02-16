@@ -1,5 +1,5 @@
 """
-MacroProof — HTML visualization for verification results.
+FactMesh — HTML visualization for verification results.
 
 Generates a single-page HTML dashboard showing the consistency graph.
 """
@@ -7,7 +7,7 @@ Generates a single-page HTML dashboard showing the consistency graph.
 import json
 from pathlib import Path
 
-from macroproof.graph import ConsistencyGraph
+from factmesh.graph import ConsistencyGraph
 
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -15,7 +15,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MacroProof — {report_name}</title>
+<title>FactMesh — {report_name}</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6fa; color: #2d3436; padding: 20px; }
@@ -61,7 +61,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
 <div class="container">
-  <h1>MacroProof Verification Report</h1>
+  <h1>FactMesh Verification Report</h1>
   <p class="subtitle">{report_name} — {total_claims} claims verified against {total_tables} tables</p>
 
   <div class="summary-grid">
@@ -240,4 +240,4 @@ def render_html(
 
 # Need logger
 import logging
-logger = logging.getLogger("macroproof.viz")
+logger = logging.getLogger("factmesh.viz")

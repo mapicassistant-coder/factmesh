@@ -1,8 +1,8 @@
 """
-MacroProof — CLI entry point.
+FactMesh — CLI entry point.
 
 Usage:
-    python -m macroproof input/SYC2024_Staff_Report/
+    python -m factmesh input/SYC2024_Staff_Report/
 """
 
 import argparse
@@ -11,20 +11,20 @@ import logging
 import sys
 from pathlib import Path
 
-from macroproof.graph import build_graph
-from macroproof.viz import render_html
+from factmesh.graph import build_graph
+from factmesh.viz import render_html
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
 )
-logger = logging.getLogger("macroproof")
+logger = logging.getLogger("factmesh")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="macroproof",
-        description="MacroProof — Automated macro-consistency verification for IMF Staff Reports.",
+        prog="factmesh",
+        description="FactMesh — Automated macro-consistency verification for IMF Staff Reports.",
     )
     parser.add_argument("input_dir", type=str, help="Path to pdf_engineer output directory")
     parser.add_argument("--output", type=str, default=None, help="Output directory (default: output/<report_name>/)")
@@ -53,7 +53,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     logger.info("=" * 60)
-    logger.info("MacroProof — Consistency Verification")
+    logger.info("FactMesh — Consistency Verification")
     logger.info("=" * 60)
     logger.info("Report: %s", report_name)
     logger.info("Input:  %s", input_dir)
@@ -103,7 +103,7 @@ def _write_markdown_report(graph, report_name: str, output_path: Path):
     match_pct = round(summary["match"] / total_numeric * 100) if total_numeric > 0 else 0
 
     lines = [
-        f"# MacroProof Consistency Report: {report_name}\n",
+        f"# FactMesh Consistency Report: {report_name}\n",
         f"## Summary\n",
         f"| Metric | Count |",
         f"| --- | ---: |",

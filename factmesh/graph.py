@@ -1,5 +1,5 @@
 """
-MacroProof — Graph builder.
+FactMesh — Graph builder.
 
 Constructs a verification graph linking narrative claims to table cells.
 LLM normalizes variable names; verification is deterministic.
@@ -15,7 +15,7 @@ from pathlib import Path
 import pandas as pd
 from pydantic import BaseModel, Field
 
-logger = logging.getLogger("macroproof.graph")
+logger = logging.getLogger("factmesh.graph")
 
 
 # --- Schemas ---
