@@ -1,0 +1,107 @@
+{
+  "table_id": "Table_25_p84",
+  "table_title": "Great Britain: Regression Estimation",
+  "page_num": 84,
+  "columns": [
+    "Variable",
+    "Coefficient",
+    "Std. Error",
+    "t-Statistic",
+    "Prob."
+  ],
+  "data": {
+    "D(REMUMGB)": {
+      "Variable": "D(REMUMGB)",
+      "Coefficient": "1.586605",
+      "Std. Error": "0.970307",
+      "t-Statistic": "1.635158",
+      "Prob.": "0.1060"
+    },
+    "D(RERGB)": {
+      "Variable": "D(RERGB)",
+      "Coefficient": "0.496468",
+      "Std. Error": "0.470361",
+      "t-Statistic": "1.055887",
+      "Prob.": "0.2942"
+    },
+    "D(REMUMGB(-1))": {
+      "Variable": "D(REMUMGB(-1))",
+      "Coefficient": "-0.864755",
+      "Std. Error": "1.087483",
+      "t-Statistic": "-0.795189",
+      "Prob.": "0.4289"
+    },
+    "D(RERGB(-1))": {
+      "Variable": "D(RERGB(-1))",
+      "Coefficient": "-0.590659",
+      "Std. Error": "0.507755",
+      "t-Statistic": "-1.163276",
+      "Prob.": "0.2482"
+    },
+    "D(REMUMGB(-2))": {
+      "Variable": "D(REMUMGB(-2))",
+      "Coefficient": "1.895074",
+      "Std. Error": "1.033686",
+      "t-Statistic": "1.833317",
+      "Prob.": "0.0705"
+    },
+    "D(RERGB(-2))": {
+      "Variable": "D(RERGB(-2))",
+      "Coefficient": "-1.243431",
+      "Std. Error": "0.560141",
+      "t-Statistic": "-2.219853",
+      "Prob.": "0.0293"
+    },
+    "D(REMUMGB(-3))": {
+      "Variable": "D(REMUMGB(-3))",
+      "Coefficient": "-0.124018",
+      "Std. Error": "0.948292",
+      "t-Statistic": "-0.130781",
+      "Prob.": "0.8963"
+    },
+    "D(RERGB(-3))": {
+      "Variable": "D(RERGB(-3))",
+      "Coefficient": "-0.381872",
+      "Std. Error": "0.516234",
+      "t-Statistic": "-0.751930",
+      "Prob.": "0.4543"
+    },
+    "D(GGB)": {
+      "Variable": "D(GGB)",
+      "Coefficient": "8.420162",
+      "Std. Error": "1.867403",
+      "t-Statistic": "4.509023",
+      "Prob.": "0.0000"
+    },
+    "D(GGB(-1))": {
+      "Variable": "D(GGB(-1))",
+      "Coefficient": "12.56043",
+      "Std. Error": "1.632216",
+      "t-Statistic": "7.695325",
+      "Prob.": "0.0000"
+    },
+    "ECT(-1)": {
+      "Variable": "ECT(-1)",
+      "Coefficient": "-0.950168",
+      "Std. Error": "0.084927",
+      "t-Statistic": "-11.18802",
+      "Prob.": "0.0000"
+    },
+    "D(DUMCOV)": {
+      "Variable": "D(DUMCOV)",
+      "Coefficient": "-2.931280",
+      "Std. Error": "0.312305",
+      "t-Statistic": "-9.385960",
+      "Prob.": "0.0000"
+    },
+    "C": {
+      "Variable": "C",
+      "Coefficient": "-0.177362",
+      "Std. Error": "0.037975",
+      "t-Statistic": "-4.670496",
+      "Prob.": "0.0000"
+    }
+  },
+  "units": "Not specified",
+  "notes": "R-squared 0.885518 Mean dependent var 0.003374"
+}

@@ -1,0 +1,53 @@
+{
+  "table_id": "Table_16_p66",
+  "table_title": "Seychelles: EBA-lite Model Results, 2023",
+  "page_num": 66,
+  "columns": [
+    "CA model 1/",
+    "REER model"
+  ],
+  "data": {
+    "CA-Actual": {
+      "CA model 1/": "-7.3",
+      "REER model": null
+    },
+    "Cyclical contributions (from model) (-)": {
+      "CA model 1/": "-0.4",
+      "REER model": null
+    },
+    "Natural disasters and conflicts (-)": {
+      "CA model 1/": "0.0",
+      "REER model": null
+    },
+    "Adjusted CA": {
+      "CA model 1/": "-6.9",
+      "REER model": null
+    },
+    "CA Norm (from model) 2/": {
+      "CA model 1/": "-0.6",
+      "REER model": null
+    },
+    "Adjusted CA Norm": {
+      "CA model 1/": "-0.6",
+      "REER model": null
+    },
+    "CA Gap": {
+      "CA model 1/": "-6.2",
+      "REER model": "-39.8"
+    },
+    "o/w Relative policy gap": {
+      "CA model 1/": "2.0",
+      "REER model": null
+    },
+    "Elasticity": {
+      "CA model 1/": "-2.4",
+      "REER model": null
+    },
+    "REER Gap (in percent)": {
+      "CA model 1/": "2.6",
+      "REER model": "16.4"
+    }
+  },
+  "units": "Percent of GDP",
+  "notes": "1/ Based on the EBA-lite 3.0 methodology\n2/ Cyclically adjusted, including multilateral consistency adjustments."
+}

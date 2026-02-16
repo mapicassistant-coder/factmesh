@@ -1,0 +1,34 @@
+{
+  "table_id": "Table_23_p82",
+  "table_title": "France: Unit Root test for Error Correction Term (ECT)",
+  "page_num": 82,
+  "columns": [
+    "Test",
+    "t-Statistic",
+    "Prob.*"
+  ],
+  "data": {
+    "Augmented Dickey-Fuller test statistic": {
+      "Test": "Exogenous: Constant",
+      "t-Statistic": "-6.32981",
+      "Prob.*": "0.0000"
+    },
+    "Test critical values: 1% level": {
+      "Test": "Lag Length: 4 (Automatic - based on SIC, maxlag=11)",
+      "t-Statistic": "-3.53088",
+      "Prob.*": null
+    },
+    "5% level": {
+      "Test": null,
+      "t-Statistic": "-2.89359",
+      "Prob.*": null
+    },
+    "10% level": {
+      "Test": null,
+      "t-Statistic": "-2.58393",
+      "Prob.*": null
+    }
+  },
+  "units": "Not specified",
+  "notes": "*MacKinnon (1996) one-sided p-values."
+}

@@ -1,0 +1,2006 @@
+[
+  {
+    "claim_text": "Real GDP growth is estimated at 3.2 percent in 2023, compared to 3.8 percent projected at the time of the first review and average growth of about 6.9 percent in the 10 years prior to the pandemic.",
+    "variables_referenced": [
+      "Real_GDP_growth"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Real_GDP_growth",
+        "value": "3.2",
+        "year": "2023"
+      },
+      {
+        "variable": "Real_GDP_growth",
+        "value": "3.8",
+        "year": "2023"
+      },
+      {
+        "variable": "Real_GDP_growth",
+        "value": "6.9",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 13"
+  },
+  {
+    "claim_text": "Total employment grew by 0.5 percent from Q4 2022 to Q4 2023, and the unemployment rate as of Q2 2023 was 3.2 percent.",
+    "variables_referenced": [
+      "Employment_Growth",
+      "Unemployment_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Employment_Growth",
+        "value": "0.5",
+        "year": "2023"
+      },
+      {
+        "variable": "Unemployment_Rate",
+        "value": "3.2",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 13"
+  },
+  {
+    "claim_text": "Core inflation dropped to -0.9 percent.",
+    "variables_referenced": [
+      "Core_Inflation"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Core_Inflation",
+        "value": "-0.9",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 13"
+  },
+  {
+    "claim_text": "Headline inflation has since reversed course, climbing to -0.17 percent in March 2024 (y/y) on the back of hikes in utility tariffs.",
+    "variables_referenced": [
+      "Headline_Inflation"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Headline_Inflation",
+        "value": "-0.17",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 13"
+  },
+  {
+    "claim_text": "Total damages and losses are estimated at SCR 2.2 billion (7.4 percent of GDP) according to “Seychelles Complex Emergencies: Rapid Damage and Loss Assessment” (World Bank, December 2023).",
+    "variables_referenced": [
+      "Damages_and_Losses"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Damages_and_Losses",
+        "value": "7.4",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 13"
+  },
+  {
+    "claim_text": "Public Utilities Corporation (PUC) has announced tariff increases for electricity (8.4 percent) and water and sewerage (9.2 percent) to reflect its new projected investment plans to expand capacity.",
+    "variables_referenced": [
+      "Electricity_Tariff",
+      "Water_and_Sewerage_Tariff"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Electricity_Tariff",
+        "value": "8.4",
+        "year": "unknown"
+      },
+      {
+        "variable": "Water_and_Sewerage_Tariff",
+        "value": "9.2",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 13"
+  },
+  {
+    "claim_text": "The CBS maintained the policy rate at 2 percent—where it had been since mid-2021—as the negative inflation was considered temporary and supply driven.",
+    "variables_referenced": [
+      "Policy_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Policy_Rate",
+        "value": "2",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 14"
+  },
+  {
+    "claim_text": "At end-March 2024, however, the CBS announced a reduction in the policy rate by 25 bps, citing weaker than projected growth and the need to support credit and the economy.",
+    "variables_referenced": [
+      "Policy_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Policy_Rate",
+        "value": "-0.25",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 14"
+  },
+  {
+    "claim_text": "The 2023 current account deficit is estimated at 7.2 percent of GDP—a marginal improvement relative to 2022, but weaker than the 5.4 percent projected at the first review.",
+    "variables_referenced": [
+      "Current_Account_Deficit"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Current_Account_Deficit",
+        "value": "-7.2",
+        "year": "2023"
+      },
+      {
+        "variable": "Current_Account_Deficit",
+        "value": "-5.4",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 14"
+  },
+  {
+    "claim_text": "Gross international reserves increased to $682 million in December 2023 (3.2 months of imports, 104 percent of ARA metric), from $639 million at end-2022 (102 percent of ARA metric).",
+    "variables_referenced": [
+      "Gross_International_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Gross_International_Reserves",
+        "value": "682",
+        "year": "2023"
+      },
+      {
+        "variable": "Gross_International_Reserves",
+        "value": "639",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 14"
+  },
+  {
+    "claim_text": "The exchange rate depreciated slightly (0.5 percent) comparing end-2022 to end-2023 but appreciated by 1.8 percent against the US dollar on average between 2022 and 2023.",
+    "variables_referenced": [
+      "Exchange_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Exchange_Rate",
+        "value": "-0.5",
+        "year": "2023"
+      },
+      {
+        "variable": "Exchange_Rate",
+        "value": "1.8",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 14"
+  },
+  {
+    "claim_text": "In NEER and REER terms, the rupee appreciated by 1.2 percent and depreciated by 6.1 percent, respectively, on a YOY basis.",
+    "variables_referenced": [
+      "NEER",
+      "REER"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "NEER",
+        "value": "1.2",
+        "year": "unknown"
+      },
+      {
+        "variable": "REER",
+        "value": "-6.1",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 14"
+  },
+  {
+    "claim_text": "Government expenditures fell short of projections by SR 605 million (2 percent of revised 2023 GDP), with large recurrent and capital expenditure shortfalls.",
+    "variables_referenced": [
+      "Government_Expenditures"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Expenditures",
+        "value": "-2",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 15"
+  },
+  {
+    "claim_text": "Credit to the private sector—led by construction and retail segments—grew by 7.4 percent in 2023 compared to 4 percent in 2022.",
+    "variables_referenced": [
+      "Private_Sector_Credit"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Private_Sector_Credit",
+        "value": "7.4",
+        "year": "2023"
+      },
+      {
+        "variable": "Private_Sector_Credit",
+        "value": "4",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 15"
+  },
+  {
+    "claim_text": "The cost of credit remains high, with average lending rates of 9.7 percent at end-December 2023, reflecting the high spread between lending and deposit rates (about 7.7 ppt).",
+    "variables_referenced": [
+      "Lending_Rates"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Lending_Rates",
+        "value": "9.7",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 15"
+  },
+  {
+    "claim_text": "Real GDP growth is forecast at 3.7 percent in 2024—about 0.3 ppt lower than projected at the first review and accounting for the impact of the December 2023 floods and explosion.",
+    "variables_referenced": [
+      "Real_GDP_growth"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Real_GDP_growth",
+        "value": "3.7",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 15"
+  },
+  {
+    "claim_text": "Growth is projected to rise to 4.1 percent in 2025 and stabilize around 3.5 percent in the medium term.",
+    "variables_referenced": [
+      "Real_GDP_growth"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Real_GDP_growth",
+        "value": "4.1",
+        "year": "2025"
+      },
+      {
+        "variable": "Real_GDP_growth",
+        "value": "3.5",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 15"
+  },
+  {
+    "claim_text": "Average annual inflation is projected at 1.2 percent in 2024, due to higher fuel and utility prices.",
+    "variables_referenced": [
+      "Average_Annual_Inflation"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Average_Annual_Inflation",
+        "value": "1.2",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 15"
+  },
+  {
+    "claim_text": "Gross foreign exchange reserves are projected to reach $751 million by end-2024, equivalent to 3.4 months of imports.",
+    "variables_referenced": [
+      "Gross_Foreign_Exchange_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Gross_Foreign_Exchange_Reserves",
+        "value": "751",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "Private credit is expected to grow 8.4 percent in 2024 and accelerate gradually to 9.6 percent by 2026.",
+    "variables_referenced": [
+      "Private_Credit_Growth"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Private_Credit_Growth",
+        "value": "8.4",
+        "year": "2024"
+      },
+      {
+        "variable": "Private_Credit_Growth",
+        "value": "9.6",
+        "year": "2026"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "Projections for global commodity and transport prices are subject to downside risks from the conflict in the Middle East, Russia’s war in Ukraine and other regional conflicts.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "Increasing competition in the global tourism industry, coupled with the potential for slower growth in traditional source markets or disruptions in new markets, pose further risks.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "Should tourism decline, the drop in FX inflows could weaken the rupee and pass through to inflation.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "On the domestic side, financial stability risks may arise from large exposures, credit concentration, and high NPLs.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "The El Niño phenomenon appears to be exacerbating the effects of climate change through unseasonably heavy rains.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "Seychelles remains vulnerable to sea level rise and natural disasters via damage to coastal infrastructure and tourism.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "Risks could arise should political tensions escalate in the runup to the 2025 elections.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 16"
+  },
+  {
+    "claim_text": "The average number of international flights has returned to its pre-pandemic level.",
+    "variables_referenced": [
+      "Tourism_Flights"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 18"
+  },
+  {
+    "claim_text": "The average length of stay for tourists has fully recovered to pre-pandemic levels.",
+    "variables_referenced": [
+      "Tourism_Stay_Length"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 18"
+  },
+  {
+    "claim_text": "Cumulative inflation in Seychelles between 2021 and 2023 has been one of the lowest among similar countries.",
+    "variables_referenced": [
+      "Inflation_rate"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 19"
+  },
+  {
+    "claim_text": "The steepest declines in 2023 were observed in housing, electricity, and utilities, recreation and culture, and transport.",
+    "variables_referenced": [
+      "Inflation_rate"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 19"
+  },
+  {
+    "claim_text": "Government revenue, excluding grants, is projected to be about 2.1 percentage points of GDP lower than projected at the first review.",
+    "variables_referenced": [
+      "Government_Revenue"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Revenue",
+        "value": "-2.1",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "Table_1_p49",
+    "page_or_section": "Page 20"
+  },
+  {
+    "claim_text": "The Sovereign Risk Debt Sustainability Framework (SRDSF) indicates that Seychelles is at a moderate risk of sovereign stress, and debt is assessed to be sustainable with high probability.",
+    "variables_referenced": [
+      "Sovereign_Risk",
+      "Government_Debt"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 21"
+  },
+  {
+    "claim_text": "Fiscal policy will remain anchored by the primary fiscal balance, with a view to reducing public debt to 50 percent of GDP or less by the authorities’ target of 2030.",
+    "variables_referenced": [
+      "Primary_Fiscal_Balance",
+      "Government_Debt"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Debt",
+        "value": "50",
+        "year": "2030"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 21"
+  },
+  {
+    "claim_text": "VAT collections are expected to rise in 2024 and beyond as refunds diminish together with steps to streamline VAT registration and collection and enhance refund efficiency.",
+    "variables_referenced": [
+      "VAT_Collections"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 21"
+  },
+  {
+    "claim_text": "The Ministry of Finance has estimated that SR 88.6 million (0.3 percent of GDP) was allocated for maintenance, repairs, and the reconstruction of both private residences and government housing units.",
+    "variables_referenced": [
+      "Maintenance_Repairs_Allocation"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Maintenance_Repairs_Allocation",
+        "value": "88.6",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 21"
+  },
+  {
+    "claim_text": "The ratio of public and publicly guaranteed debt is projected to decline from 58.5 percent of GDP in 2023 to around 46 percent of GDP by 2030, barring new shocks.",
+    "variables_referenced": [
+      "Government_Debt"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Debt",
+        "value": "58.5",
+        "year": "2023"
+      },
+      {
+        "variable": "Government_Debt",
+        "value": "46",
+        "year": "2030"
+      }
+    ],
+    "likely_table": "Table_1_p49",
+    "page_or_section": "Page 23"
+  },
+  {
+    "claim_text": "Exposure of the banking sector to government securities declined by 1.3 ppt, to 13.1 percent of assets in December 2023.",
+    "variables_referenced": [
+      "Banking_Sector_Exposure"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Banking_Sector_Exposure",
+        "value": "-1.3",
+        "year": "2023"
+      },
+      {
+        "variable": "Banking_Sector_Exposure",
+        "value": "13.1",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p49",
+    "page_or_section": "Page 24"
+  },
+  {
+    "claim_text": "The mission considered the recent reduction in the CBS policy rate as appropriate given weaker growth and disinflation.",
+    "variables_referenced": [
+      "Policy_Rate",
+      "Real_GDP_growth",
+      "Inflation_rate"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 25"
+  },
+  {
+    "claim_text": "The CBS intervened and purchased an equivalent of $59.3 million in 2023.",
+    "variables_referenced": [
+      "FX_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "FX_Reserves",
+        "value": "59.3",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p49",
+    "page_or_section": "Page 26"
+  },
+  {
+    "claim_text": "The current account narrowed slightly in 2023, compared to 2022 but was higher than anticipated at the time of the first review due the latter reflecting negative inflation.",
+    "variables_referenced": [
+      "Current_Account",
+      "Inflation_rate"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_1_p49",
+    "page_or_section": "Page 26"
+  },
+  {
+    "claim_text": "The authorities should continue to maintain a flexible exchange rate regime and build buffers against external shocks.",
+    "variables_referenced": [
+      "Exchange_Rate",
+      "External_Buffers"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 27"
+  },
+  {
+    "claim_text": "After experiencing a V-shaped recovery, economic growth is expected to moderate.",
+    "variables_referenced": [
+      "Real_GDP_growth"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 41"
+  },
+  {
+    "claim_text": "Nominal interest rates remained unchanged as inflation remained moderate.",
+    "variables_referenced": [
+      "Nominal_Interest_Rate",
+      "Inflation_rate"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 41"
+  },
+  {
+    "claim_text": "Private sector credit continued to recover in line with economic growth and despite the tighter monetary policy stance generated by disinflation.",
+    "variables_referenced": [
+      "Private_Sector_Credit",
+      "Real_GDP_growth",
+      "Monetary_Policy"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 41"
+  },
+  {
+    "claim_text": "The external position has improved with the recovery in tourism.",
+    "variables_referenced": [
+      "External_Position",
+      "Tourism_Revenue"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 41"
+  },
+  {
+    "claim_text": "Reserves projected to recover after falling due to lower tourism receipts and higher fuel and food import costs.",
+    "variables_referenced": [
+      "Reserves",
+      "Tourism_Revenue",
+      "Fuel_Import_Costs",
+      "Food_Import_Costs"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 42"
+  },
+  {
+    "claim_text": "Budget under execution should lead to fiscal surplus…",
+    "variables_referenced": [
+      "Fiscal_Balance"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 42"
+  },
+  {
+    "claim_text": "…contributing to lowering debt vulnerability.",
+    "variables_referenced": [
+      "Government_Debt"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 42"
+  },
+  {
+    "claim_text": "The debt stock as percent of GDP is calculated in local currency.",
+    "variables_referenced": [
+      "Government_Debt"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_9_p52",
+    "page_or_section": "Page 52"
+  },
+  {
+    "claim_text": "The RAM reflects staff views on the source of risks and overall level of concern as of the time of discussions with the authorities.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 53"
+  },
+  {
+    "claim_text": "The relative likelihood is the staff’s subjective assessment of the risks surrounding the baseline (“low” is meant to indicate a probability below 10 percent, “medium” a probability between 10 and 30 percent, and “high” a probability between 30 and 50 percent).",
+    "variables_referenced": [],
+    "values_mentioned": [
+      {
+        "variable": "Risk_Probability",
+        "value": "10",
+        "year": "unknown"
+      },
+      {
+        "variable": "Risk_Probability",
+        "value": "30",
+        "year": "unknown"
+      },
+      {
+        "variable": "Risk_Probability",
+        "value": "50",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 53"
+  },
+  {
+    "claim_text": "Staff assesses Seychelles to be at a moderate risk of sovereign stress and debt is assessed to be sustainable with high probability.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Medium-term liquidity risks as analyzed by the GFN Financeability Module are moderate.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Gross financing needs are assessed to be lower compared to June 2023 DSA due to stronger than anticipated fiscal consolidation and higher GDP projections.",
+    "variables_referenced": [
+      "Gross_Financing_Needs",
+      "Real_GDP_growth"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Seychelles faces limited access to concessional financing which can increase debt servicing costs.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Seychelles should also continue with policies to tackle risks arising from climate change.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Fund's support through RSF will help contain risks.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Health spending needs will also rise, in part due to high percentage of population suffering from substance abuse and its long-term generational effect.",
+    "variables_referenced": [
+      "Health_Spending"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 55"
+  },
+  {
+    "claim_text": "Prob. of false alarm, 2024-2029 (if stress predicted): 31.8 pct.",
+    "variables_referenced": [
+      "Probability_of_False_Alarm"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Probability_of_False_Alarm",
+        "value": "31.8",
+        "year": "2024-2029"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 60"
+  },
+  {
+    "claim_text": "Both of the medium-term tools indicate that risk is moderate.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 60"
+  },
+  {
+    "claim_text": "The fan chart analysis estimates risks to be moderate partly due to a high assessed probability of debt stabilization.",
+    "variables_referenced": [
+      "Debt_Stabilization_Risk"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 60"
+  },
+  {
+    "claim_text": "The GFN module also indicates moderate risk for Seychelles in relation to its low average projected gross financing needs and relatively limited exposure of banks on government debt.",
+    "variables_referenced": [
+      "Gross_Financing_Needs",
+      "Bank_Exposure_to_Government_Debt"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 60"
+  },
+  {
+    "claim_text": "In a standard stress scenario, the natural disaster shock would elevate financing needs in the short term but the financing needs would stabilize.",
+    "variables_referenced": [
+      "Financing_Needs"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 60"
+  },
+  {
+    "claim_text": "Seychelles’ current account deficit improved slightly in 2023 compared to 2022 but was larger than anticipated at the time of the first review due mostly to higher imports linked to tourism recovery and strong FDI inflows.",
+    "variables_referenced": [
+      "Current_Account"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 65"
+  },
+  {
+    "claim_text": "Seychelles’ NIIP is estimated at -42 percent of GDP compared to -33 percent at end 2022.",
+    "variables_referenced": [
+      "Net_International_Investment_Position"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Net_International_Investment_Position",
+        "value": "-42",
+        "year": "2023"
+      },
+      {
+        "variable": "Net_International_Investment_Position",
+        "value": "-33",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 65"
+  },
+  {
+    "claim_text": "Tourist arrivals increased by about 6 percent compared to 2022, reaching 91 percent of the pre-pandemic peak of 384,204 in 2019.",
+    "variables_referenced": [
+      "Tourist_Arrivals"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Tourist_Arrivals",
+        "value": "6",
+        "year": "2023"
+      },
+      {
+        "variable": "Tourist_Arrivals",
+        "value": "91",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 66"
+  },
+  {
+    "claim_text": "The exchange rate appreciated by 1.8 percent against the US dollar on average in 2023.",
+    "variables_referenced": [
+      "Exchange_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Exchange_Rate",
+        "value": "1.8",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 67"
+  },
+  {
+    "claim_text": "Gross International Reserves (GIR) at end-2023 were $681 million (3.2 months of imports, 104 percent of ARA metric), a slight increase from US$639 million at end-2022 (3.2 months of imports, 102 percent of ARA metric).",
+    "variables_referenced": [
+      "Gross_International_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Gross_International_Reserves",
+        "value": "681",
+        "year": "2023"
+      },
+      {
+        "variable": "Gross_International_Reserves",
+        "value": "639",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 67"
+  },
+  {
+    "claim_text": "The authorities should continue to maintain a flexible exchange rate regime and build up external buffers against external shocks.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 65"
+  },
+  {
+    "claim_text": "Seychelles’ international reserve holdings are assessed against standard reserve adequacy benchmark.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 68"
+  },
+  {
+    "claim_text": "In 2023, 38 CD activities were implemented in Seychelles and in FY 2024, a total of 31 CD activities is expected to take place.",
+    "variables_referenced": [
+      "Capacity_Development_Activities"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Capacity_Development_Activities",
+        "value": "38",
+        "year": "2023"
+      },
+      {
+        "variable": "Capacity_Development_Activities",
+        "value": "31",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 69"
+  },
+  {
+    "claim_text": "In May 2023, the Board approved a three-year arrangement for Seychelles under the Extended Fund Facility (EFF), in an amount equivalent to US$56 million, as well as a three-year arrangement under the Resilience and Sustainability Facility (RSF), in an amount equivalent to US$46 million.",
+    "variables_referenced": [
+      "Extended_Fund_Facility",
+      "Resilience_and_Sustainability_Facility"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Extended_Fund_Facility",
+        "value": "56",
+        "year": "2023"
+      },
+      {
+        "variable": "Resilience_and_Sustainability_Facility",
+        "value": "46",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 69"
+  },
+  {
+    "claim_text": "Tourism earnings reached U$989 million in 2023, about 46 percent of GDP or 49 percent of total exports of goods and services.",
+    "variables_referenced": [
+      "Tourism_Earnings",
+      "GDP",
+      "Exports_of_Goods_and_Services"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Tourism_Earnings",
+        "value": "989",
+        "year": "2023"
+      },
+      {
+        "variable": "GDP",
+        "value": "46",
+        "year": "2023"
+      },
+      {
+        "variable": "Exports_of_Goods_and_Services",
+        "value": "49",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 71"
+  },
+  {
+    "claim_text": "After contracting by over 60 percent in 2020 due to the pandemic, the tourism earnings bounced back with a strong recovery of 80 percent in 2021 and 60 percent in 2022.",
+    "variables_referenced": [
+      "Tourism_Earnings"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Tourism_Earnings",
+        "value": "-60",
+        "year": "2020"
+      },
+      {
+        "variable": "Tourism_Earnings",
+        "value": "80",
+        "year": "2021"
+      },
+      {
+        "variable": "Tourism_Earnings",
+        "value": "60",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 71"
+  },
+  {
+    "claim_text": "In 2023, however, the sector expanded by only 6 percent in 2023, reaching 91 percent of its peak pre-pandemic earnings, and the authorities project the growth to reach about 5 percent in 2025 and plateau at around 3 percent over the medium term.",
+    "variables_referenced": [
+      "Tourism_Earnings"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Tourism_Earnings",
+        "value": "6",
+        "year": "2023"
+      },
+      {
+        "variable": "Tourism_Earnings",
+        "value": "91",
+        "year": "2023"
+      },
+      {
+        "variable": "Tourism_Earnings",
+        "value": "5",
+        "year": "2025"
+      },
+      {
+        "variable": "Tourism_Earnings",
+        "value": "3",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 71"
+  },
+  {
+    "claim_text": "Globally, the price of vacation increased by about 14.5 in 2023 compared to previous year, and Seychelles followed similar increase.",
+    "variables_referenced": [
+      "Vacation_Price"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Vacation_Price",
+        "value": "14.5",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 72"
+  },
+  {
+    "claim_text": "Seychelles ranked 62 out of 140 countries, lagging behind its major competitor, Mauritius, which ranked 54 in the overall ranking.",
+    "variables_referenced": [
+      "Travel_and_Tourism_Competitiveness_Index"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Travel_and_Tourism_Competitiveness_Index",
+        "value": "62",
+        "year": "2019"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 74"
+  },
+  {
+    "claim_text": "As of February 2024, there are direct flights to Seychelles from 14 countries servicing total of about 60 flights per week from these origins.",
+    "variables_referenced": [
+      "Direct_Flights"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Direct_Flights",
+        "value": "60",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 74"
+  },
+  {
+    "claim_text": "In comparison, there are 27 airports with direct flights to Mauritius from 19 other countries, in many cases from multiple airports from a country, providing total of about 130 flights per week.",
+    "variables_referenced": [
+      "Direct_Flights"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Direct_Flights",
+        "value": "130",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 74"
+  },
+  {
+    "claim_text": "Mauritius also has 10 golf courses, compared to only two in Seychelles.",
+    "variables_referenced": [
+      "Golf_Courses"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Golf_Courses",
+        "value": "2",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 75"
+  },
+  {
+    "claim_text": "The analysis focuses on the major tourist clientele, namely nationals of Germany, France, Italy, United Kingdom, Switzerland, and Russia who are mostly traditional clientele and comprise about 60 percent of total arrivals.",
+    "variables_referenced": [
+      "Tourist_Arrivals"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Tourist_Arrivals",
+        "value": "60",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 76"
+  },
+  {
+    "claim_text": "The results of econometric exercise suggested that different factors determine tourism demand for visitors from each country.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 78"
+  },
+  {
+    "claim_text": "Income was an important determinant factor for tourism demand for the four largest visitors, Germany, France, Italy, and UK but not for Switzerland and Russia.",
+    "variables_referenced": [
+      "Tourism_Demand"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 78"
+  },
+  {
+    "claim_text": "Real exchange rate vis-à-vis Seychelles was an important determinant for tourism demand from Germany, Italy, and UK.",
+    "variables_referenced": [
+      "Tourism_Demand"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 78"
+  },
+  {
+    "claim_text": "The real exchange rate of the competitor Mauritius rufiyaa was an important factor only for Italy and Switzerland.",
+    "variables_referenced": [
+      "Tourism_Demand"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 78"
+  },
+  {
+    "claim_text": "All countries were sensitive to the Covid-19 pandemic.",
+    "variables_referenced": [
+      "Tourism_Demand"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 78"
+  },
+  {
+    "claim_text": "For Russia, the sign of the coefficient of real exchange rate vis-à-vis Seychelles rupee was positive, meaning that a real appreciation of Seychelles rupee was associated with increased demand for tourism demand.",
+    "variables_referenced": [
+      "Tourism_Demand"
+    ],
+    "values_mentioned": [],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 78"
+  },
+  {
+    "claim_text": "There are signs that Seychelles’ tourism sector may be approaching its tourist carrying capacity limits.",
+    "variables_referenced": [
+      "Tourism_Carrying_Capacity"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 77"
+  },
+  {
+    "claim_text": "All four sub-indices monitoring the physical-ecological aspect of the carrying capacity show that Seychelles may be reaching or has exceeded carrying capacity limits.",
+    "variables_referenced": [
+      "Tourism_Carrying_Capacity"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 79"
+  },
+  {
+    "claim_text": "For the people-users per meter of beach (PUB) index, Seychelles would be 1.14 if the entire coastline is considered as beach, and 2.19 if only Mahe, Praslin and La Digue are treated as beaches hosting tourists.",
+    "variables_referenced": [
+      "PUB_Index"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "PUB_Index",
+        "value": "1.14",
+        "year": "unknown"
+      },
+      {
+        "variable": "PUB_Index",
+        "value": "2.19",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 79"
+  },
+  {
+    "claim_text": "Tourism is the main pillar of Seychelles’ economy, and how to maintain its competitiveness, i.e., how to increase tourism earnings going forward, is a key policy question.",
+    "variables_referenced": [
+      "Tourism_Earnings"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 80"
+  },
+  {
+    "claim_text": "Given the constraints on tourism growth through higher volume, the government’s tourism policy will need to focus more on how to increase earnings per tourists rather than total number of tourist arrivals.",
+    "variables_referenced": [
+      "Tourism_Earnings"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 80"
+  },
+  {
+    "claim_text": "The Climate Policy Initiative estimates that average annual climate finance flows reached almost $1.27 trillion in 2022, almost double the levels from 2020.",
+    "variables_referenced": [
+      "Climate_Finance_Flows"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Climate_Finance_Flows",
+        "value": "1.27 trillion",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 89"
+  },
+  {
+    "claim_text": "The overwhelming majority of these funds, $1.15 trillion, were devoted to climate change mitigation.",
+    "variables_referenced": [
+      "Climate_Mitigation_Finance"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Climate_Mitigation_Finance",
+        "value": "1.15 trillion",
+        "year": "2022"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 89"
+  },
+  {
+    "claim_text": "Seychelles participates in four regional-level projects, amassing a total of $34.3 million.",
+    "variables_referenced": [
+      "Regional_Project_Funding"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Regional_Project_Funding",
+        "value": "34.3 million",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 90"
+  },
+  {
+    "claim_text": "Climate Analytics indicates that approximately $230 million has been disbursed, which is less than 9 percent of the total amount approved by the Green Climate Fund for the LDCs, after 5.5 years of operation.",
+    "variables_referenced": [
+      "GCF_Disbursement"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "GCF_Disbursement",
+        "value": "230 million",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 90"
+  },
+  {
+    "claim_text": "The Blue Bond, issued in 2018, illustrates difficulties in disbursing funds at the local level.",
+    "variables_referenced": [
+      "Blue_Bond_Disbursement"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 92"
+  },
+  {
+    "claim_text": "Some 80 percent of the proceeds from the Blue Bond was used to establish the Blue Investment Fund (BIF) in 2020.",
+    "variables_referenced": [
+      "Blue_Bond_Proceeds"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Blue_Bond_Proceeds",
+        "value": "80 percent",
+        "year": "2020"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 92"
+  },
+  {
+    "claim_text": "The program offers up to $3 million at 4 percent interest rate to help eligible entities scale up their business.",
+    "variables_referenced": [
+      "BIF_Loan_Offer"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "BIF_Loan_Offer",
+        "value": "3 million",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 92"
+  },
+  {
+    "claim_text": "By 2024, the debt-stabilizing primary balance is projected at 0.4 percent of GDP, changing to -0.8 percent of GDP by 2029.",
+    "variables_referenced": [
+      "Primary_Balance"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Primary_Balance",
+        "value": "0.4",
+        "year": "2024"
+      },
+      {
+        "variable": "Primary_Balance",
+        "value": "-0.8",
+        "year": "2029"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 95"
+  },
+  {
+    "claim_text": "The debt target is subsequently derived by calculating the gap between the maximum debt threshold and an estimated safety margin.",
+    "variables_referenced": [
+      "Government_Debt"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 99"
+  },
+  {
+    "claim_text": "Seychelles’ use of a medium-term debt target, set at 50 percent, has been a critical element of successful fiscal consolidation since 2008.",
+    "variables_referenced": [
+      "Debt_Target"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Debt_Target",
+        "value": "50",
+        "year": "2008"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 101"
+  },
+  {
+    "claim_text": "Maintaining ample fiscal buffers will provide greater flexibility to address shocks without jeopardizing fiscal sustainability or development objectives.",
+    "variables_referenced": [
+      "Fiscal_Buffers"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 101"
+  },
+  {
+    "claim_text": "Total revenue excluding grants was lower by SR 110.7 million compared to the program estimate.",
+    "variables_referenced": [
+      "Total_Revenue_excluding_Grants"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Total_Revenue_excluding_Grants",
+        "value": "-110.7",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 105"
+  },
+  {
+    "claim_text": "Revenue excluding grants has reached 31.5 percent of GDP, up from 29.5 percent in 2022.",
+    "variables_referenced": [
+      "Total_Revenue_excluding_Grants"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Total_Revenue_excluding_Grants",
+        "value": "31.5",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 105"
+  },
+  {
+    "claim_text": "In February 2024, year-on-year inflation rate stood at negative 0.3 percent whilst the 12-month average inflation rate was negative 1.5 percent.",
+    "variables_referenced": [
+      "Inflation_rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Inflation_rate",
+        "value": "-0.3",
+        "year": "2024"
+      },
+      {
+        "variable": "Inflation_rate",
+        "value": "-1.5",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 105"
+  },
+  {
+    "claim_text": "As a percentage of GDP, it improved from 7.4 percent to 7.2 percent over that period.",
+    "variables_referenced": [
+      "Current_Account"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Current_Account",
+        "value": "-7.2",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 108"
+  },
+  {
+    "claim_text": "Gross International Reserves (GIR) stood at US$736 million as at end-March 2024, representing an increase of 7.8 percent compared to US$682 million as at end-December 2023.",
+    "variables_referenced": [
+      "Gross_International_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Gross_International_Reserves",
+        "value": "736",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 108"
+  },
+  {
+    "claim_text": "The banking industry remained well capitalised as at end of January 2024 although NPLs continued to be elevated.",
+    "variables_referenced": [
+      "Banking_Capitalization",
+      "Non_Performing_Loans"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 108"
+  },
+  {
+    "claim_text": "Return on Assets and Return on Equity increased to stand at 4.1 percent and 41 percent, respectively.",
+    "variables_referenced": [
+      "Return_on_Assets",
+      "Return_on_Equity"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Return_on_Assets",
+        "value": "4.1",
+        "year": "unknown"
+      },
+      {
+        "variable": "Return_on_Equity",
+        "value": "41",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 109"
+  },
+  {
+    "claim_text": "The liquidity position of the banking sector remained strong, with all banks maintaining a liquid asset to total liabilities ratio well above the minimum requirement of 20 percent.",
+    "variables_referenced": [
+      "Banking_Sector_Liquidity"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 109"
+  },
+  {
+    "claim_text": "Guaranteed debt is anticipated to also increase over the medium term as the Government continues to provide guarantees to the Development Bank of Seychelles, by an average of about 0.7 percent annually.",
+    "variables_referenced": [
+      "Guaranteed_Debt"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Guaranteed_Debt",
+        "value": "0.7",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 110"
+  },
+  {
+    "claim_text": "The budget 2024 aims at achieving a primary surplus of 1 percent of GDP.",
+    "variables_referenced": [
+      "Primary_Surplus"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Primary_Surplus",
+        "value": "1",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p49",
+    "page_or_section": "Page 111"
+  },
+  {
+    "claim_text": "The implementation of the new salary grid has cost Government SR 171.9 million under wages and SR 23.8 million under goods and services in 2023.",
+    "variables_referenced": [
+      "Government_Expenditure"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Expenditure",
+        "value": "171.9",
+        "year": "2023"
+      },
+      {
+        "variable": "Government_Expenditure",
+        "value": "23.8",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 112"
+  },
+  {
+    "claim_text": "This has resulted in a savings of SR 41 million or 0.1 percent of GDP.",
+    "variables_referenced": [
+      "Government_Savings"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Savings",
+        "value": "41",
+        "year": "2023"
+      },
+      {
+        "variable": "Government_Savings",
+        "value": "0.1",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 112"
+  },
+  {
+    "claim_text": "The Government remains committed to maintaining a resilient fiscal consolidation that will enable debt to continue on its downward trajectory.",
+    "variables_referenced": [
+      "Fiscal_Consolidation"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 110"
+  },
+  {
+    "claim_text": "The transfers to state-owned enterprises are being reduced significantly from 2.0 percent of GDP in 2020 to 0.16 percent forecasted for the year 2023.",
+    "variables_referenced": [
+      "Transfers_to_SOEs"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Transfers_to_SOEs",
+        "value": "2.0",
+        "year": "2020"
+      },
+      {
+        "variable": "Transfers_to_SOEs",
+        "value": "0.16",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 118"
+  },
+  {
+    "claim_text": "The new Public Enterprise act was enacted on the 31st of May 2023.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 118"
+  },
+  {
+    "claim_text": "The 2022 annual report is expected to be published by mid of April 2024.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 118"
+  },
+  {
+    "claim_text": "The annual report has presented the overall financial performance, including outstanding debt, of Public Enterprises based on their audited financial statement.",
+    "variables_referenced": [
+      "Public_Enterprise_Debt"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 118"
+  },
+  {
+    "claim_text": "The MPR was lowered by 25 basis points to 1.75 percent for the second quarter of 2024.",
+    "variables_referenced": [
+      "Monetary_Policy_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Monetary_Policy_Rate",
+        "value": "1.75",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 120"
+  },
+  {
+    "claim_text": "Subsequently, the interest rate on the SDF and SCF declined to 0.25 percent and 3.25 percent, correspondingly.",
+    "variables_referenced": [
+      "Standing_Deposit_Facility_Rate",
+      "Standing_Credit_Facility_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Standing_Deposit_Facility_Rate",
+        "value": "0.25",
+        "year": "2024"
+      },
+      {
+        "variable": "Standing_Credit_Facility_Rate",
+        "value": "3.25",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 120"
+  },
+  {
+    "claim_text": "R450 million was withdrawn from the system.",
+    "variables_referenced": [
+      "Liquidity_Withdrawal"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Liquidity_Withdrawal",
+        "value": "450",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 121"
+  },
+  {
+    "claim_text": "CBS purchased an equivalent of US$21 million as at end-March 2024.",
+    "variables_referenced": [
+      "Foreign_Exchange_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Foreign_Exchange_Reserves",
+        "value": "21",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 122"
+  },
+  {
+    "claim_text": "The outstanding value of restructured loans has maintained a downward trajectory, declining from R2.8 billion in December 2022 to stand at R2.2 billion as at end-December 2023.",
+    "variables_referenced": [
+      "Restructured_Loans"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Restructured_Loans",
+        "value": "2.2",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 122"
+  },
+  {
+    "claim_text": "This amounted to 20 percent of the industry's total loans and advances, down from 27 percent in December 2022.",
+    "variables_referenced": [
+      "Restructured_Loans_Percentage"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Restructured_Loans_Percentage",
+        "value": "20",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p96",
+    "page_or_section": "Page 122"
+  },
+  {
+    "claim_text": "CBS remains committed to a floating exchange rate and will only intervene to facilitate orderly market conduct and reserve accumulation.",
+    "variables_referenced": [
+      "Exchange_Rate_Policy"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 121"
+  },
+  {
+    "claim_text": "The CBS considers the prevailing monetary policy stance appropriate but remains cognizant of shocks that may alter the inflation outlook and stands ready to adjust its policies if necessary.",
+    "variables_referenced": [
+      "Monetary_Policy_Stance",
+      "Inflation_Outlook"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 120"
+  },
+  {
+    "claim_text": "Research shows that operational energy use in buildings represent around 30 percent of the final energy consumption.",
+    "variables_referenced": [
+      "Energy_Consumption"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Energy_Consumption",
+        "value": "30",
+        "year": "unknown"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 130"
+  },
+  {
+    "claim_text": "Funds for additional support for green finance initiatives between 2025-2027 are SR 90m, this is under the social programmes of government and will be targeting individuals.",
+    "variables_referenced": [
+      "Green_Finance"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Green_Finance",
+        "value": "90",
+        "year": "2025-2027"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 131"
+  },
+  {
+    "claim_text": "The government will introduce additional green fiscal incentives to promote climate resilience and environmental sustainability.",
+    "variables_referenced": [
+      "Green_Fiscal_Incentives"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 131"
+  },
+  {
+    "claim_text": "The photovoltaic (PV) financial rebate scheme launched in May 2014 has been put in place as an incentive to encourage residential and commercial premises to install PV systems connected to the national electricity grid on their rooftop to power their homes and businesses.",
+    "variables_referenced": [
+      "PV_Financial_Rebate_Scheme"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 131"
+  },
+  {
+    "claim_text": "The primary balance target will be adjusted upward (downward) by the surplus (shortfall) in disbursements of grants relative to the baseline projection.",
+    "variables_referenced": [
+      "Primary_Balance",
+      "Grants"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 139"
+  },
+  {
+    "claim_text": "The government revenue floor will be adjusted downward by the amount equivalent to the shortfall in nominal gross domestic product, in percentage terms, compared to the program projections.",
+    "variables_referenced": [
+      "Government_Revenue",
+      "Nominal_GDP"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 139"
+  },
+  {
+    "claim_text": "The floor on the CBS’s NIR will be adjusted upward (downward) by the amount by which the external non-project loans, including the RSF, and non-project cash grants exceeds (falls short of) the amounts assumed in the program.",
+    "variables_referenced": [
+      "Net_International_Reserves",
+      "External_Loans",
+      "Grants"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 140"
+  },
+  {
+    "claim_text": "The floor will also be adjusted upwards (downwards) by the amount that external debt service payments fall short of (exceed) the amounts assumed in the program.",
+    "variables_referenced": [
+      "Net_International_Reserves",
+      "External_Debt_Service"
+    ],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 140"
+  },
+  {
+    "claim_text": "Real growth for 2023 is estimated at 3.2 percent and forecast at 3.7 percent for 2024.",
+    "variables_referenced": [
+      "Real_GDP_growth"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Real_GDP_growth",
+        "value": "3.2",
+        "year": "2023"
+      },
+      {
+        "variable": "Real_GDP_growth",
+        "value": "3.7",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 148"
+  },
+  {
+    "claim_text": "A preliminary World Bank report estimates the cost at 7.4 percent of GDP (2023).",
+    "variables_referenced": [
+      "GDP"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "GDP",
+        "value": "7.4",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 148"
+  },
+  {
+    "claim_text": "The previous growth forecast was revised down mainly due to the December industrial zone explosion and significant flooding in the north of Mahé.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 148"
+  },
+  {
+    "claim_text": "Seychelles has enjoyed relatively strong growth and high living standards over a long period but recognizes the threats to that trajectory given its heavy reliance on external sectors through import and export channels.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 148"
+  },
+  {
+    "claim_text": "The current account deficit in 2023 was broadly unchanged from 2022 and is projected to be at a similar level (7.3 percent) in 2024.",
+    "variables_referenced": [
+      "Current_Account"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Current_Account",
+        "value": "-7.3",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "Table_3_p23",
+    "page_or_section": "Page 149"
+  },
+  {
+    "claim_text": "Fiscal performance has exceeded the program forecast. The primary balance in 2023 stood at 1.7 percent of GDP compared to a forecast of zero.",
+    "variables_referenced": [
+      "Primary_Balance"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Primary_Balance",
+        "value": "1.7",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 149"
+  },
+  {
+    "claim_text": "The Seychelles rupee appreciated by 1.8 percent against the US dollar relative to 2022.",
+    "variables_referenced": [
+      "Exchange_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Exchange_Rate",
+        "value": "1.8",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 149"
+  },
+  {
+    "claim_text": "The overall outlook while favorable remains vulnerable to external shocks.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 149"
+  },
+  {
+    "claim_text": "The authorities are dedicated to continuing fiscal consolidation; budgetary reforms will enhance public financial management delivery and facilitate investment and growth.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 149"
+  },
+  {
+    "claim_text": "The authorities are aware of the need to rebuild fiscal buffers and remain committed to a debt anchor of 50 percent of GDP or less by 2030.",
+    "variables_referenced": [
+      "Government_Debt"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Government_Debt",
+        "value": "50",
+        "year": "2030"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 149"
+  },
+  {
+    "claim_text": "The Central Bank of Seychelles (CBS) reduced its Monetary Policy Rate from 2.0 percent to 1.75 percent for the second quarter of 2024 to stimulate further economic activity given the inflation outlook.",
+    "variables_referenced": [
+      "Monetary_Policy_Rate"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Monetary_Policy_Rate",
+        "value": "1.75",
+        "year": "2024"
+      }
+    ],
+    "likely_table": "unknown",
+    "page_or_section": "Page 150"
+  },
+  {
+    "claim_text": "As at end 2023, Gross Reserves were US$682 million, with Net International Reserves (NIR) (US$529 million), exceeding the program target by US$52 million.",
+    "variables_referenced": [
+      "Gross_Reserves",
+      "Net_International_Reserves"
+    ],
+    "values_mentioned": [
+      {
+        "variable": "Gross_Reserves",
+        "value": "682",
+        "year": "2023"
+      },
+      {
+        "variable": "Net_International_Reserves",
+        "value": "529",
+        "year": "2023"
+      }
+    ],
+    "likely_table": "Table_1_p15",
+    "page_or_section": "Page 150"
+  },
+  {
+    "claim_text": "CBS remains committed to financial stability.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 150"
+  },
+  {
+    "claim_text": "The Transformative Economic Agenda aims to diversify the economic base, and improve value addition and synergies in existing sectors.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 151"
+  },
+  {
+    "claim_text": "The authorities remain committed to long run targets under the Nationally Determined Contribution with the RSF being a catalyst of the process.",
+    "variables_referenced": [],
+    "values_mentioned": [],
+    "likely_table": "unknown",
+    "page_or_section": "Page 151"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "table_id": "Table_1_p74",
+  "table_title": "Table 1. Rankings of 140 countries",
+  "page_num": 74,
+  "columns": [
+    "Overall ranking",
+    "Enabling Environment",
+    "T&T Policy and Enabling Condition",
+    "Infrastructure",
+    "Natural and Cultural Resource"
+  ],
+  "data": {
+    "Seychelles": {
+      "Overall ranking": "62",
+      "Enabling Environment": "61",
+      "T&T Policy and Enabling Condition": "103",
+      "Infrastructure": "30",
+      "Natural and Cultural Resource": "118"
+    },
+    "Mauritius": {
+      "Overall ranking": "54",
+      "Enabling Environment": "43",
+      "T&T Policy and Enabling Condition": "43",
+      "Infrastructure": "41",
+      "Natural and Cultural Resource": "117"
+    }
+  },
+  "units": "Not specified",
+  "notes": "Source: IMF data and staff calculations."
+}

@@ -1,0 +1,64 @@
+{
+  "table_id": "Table_24_p83",
+  "table_title": "Italy: Unit Root Test Results Table (ADF)",
+  "page_num": 83,
+  "columns": [
+    "At Level",
+    "VAIT_t-Statistic",
+    "VAIT_Prob.",
+    "GIT_t-Statistic",
+    "GIT_Prob.",
+    "RERIT_t-Statistic",
+    "RERIT_Prob.",
+    "REMUIT_t-Statistic",
+    "REMUIT_Prob."
+  ],
+  "data": {
+    "With Constant": {
+      "At Level": "With Constant",
+      "VAIT_t-Statistic": "-11.4478",
+      "VAIT_Prob.": "0.0000",
+      "GIT_t-Statistic": "-10.2073",
+      "GIT_Prob.": "0.0000",
+      "RERIT_t-Statistic": "-7.9715",
+      "RERIT_Prob.": "0.0000",
+      "REMUIT_t-Statistic": "-9.7633",
+      "REMUIT_Prob.": "0.0000"
+    },
+    "With Constant & Trend": {
+      "At Level": "With Constant & Trend",
+      "VAIT_t-Statistic": "-11.5718",
+      "VAIT_Prob.": "0.0000",
+      "GIT_t-Statistic": "-9.6971",
+      "GIT_Prob.": "0.0000",
+      "RERIT_t-Statistic": "-7.0553",
+      "RERIT_Prob.": "0.0000",
+      "REMUIT_t-Statistic": "-9.8699",
+      "REMUIT_Prob.": "0.0000"
+    },
+    "Without Constant & Trend": {
+      "At Level": "Without Constant & Trend",
+      "VAIT_t-Statistic": "-0.4794",
+      "VAIT_Prob.": "0.5056",
+      "GIT_t-Statistic": "2.4457",
+      "GIT_Prob.": "0.9964",
+      "RERIT_t-Statistic": "2.2904",
+      "RERIT_Prob.": "0.7679",
+      "REMUIT_t-Statistic": "0.0001",
+      "REMUIT_Prob.": "0.6802"
+    },
+    "At First Difference": {
+      "At Level": "At First Difference",
+      "VAIT_t-Statistic": "-11.5094",
+      "VAIT_Prob.": "0.0001",
+      "GIT_t-Statistic": "-12.2603",
+      "GIT_Prob.": "0.0000",
+      "RERIT_t-Statistic": "-7.4848",
+      "RERIT_Prob.": "0.0000",
+      "REMUIT_t-Statistic": "-9.8166",
+      "REMUIT_Prob.": "0.0000"
+    }
+  },
+  "units": "Not specified",
+  "notes": "a: (*)Significant at the 10%; (**)Significant at the 5%; (***) Significant at the 1% and (no) Not Significant\nb: Lag Length based on SIC\nc: Probability based on MacKinnon (1996) one-sided p-values."
+}

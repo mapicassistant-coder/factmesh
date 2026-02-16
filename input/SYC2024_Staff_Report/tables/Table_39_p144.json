@@ -1,0 +1,45 @@
+{
+  "table_id": "Table_39_p144",
+  "table_title": "RELATIONS WITH THE FUND",
+  "page_num": 144,
+  "columns": [
+    "SDR Million",
+    "% Quota"
+  ],
+  "data": {
+    "General Resources Account > Quota": {
+      "SDR Million": "22.90",
+      "% Quota": "100.00"
+    },
+    "General Resources Account > Fund holdings of currency": {
+      "SDR Million": "110.82",
+      "% Quota": "483.93"
+    },
+    "General Resources Account > Reserve Position in Fund": {
+      "SDR Million": "3.58",
+      "% Quota": "15.64"
+    },
+    "SDR Department > Net cumulative allocation": {
+      "SDR Million": "30.23",
+      "% Quota": "100.00"
+    },
+    "SDR Department > Holdings": {
+      "SDR Million": "15.01",
+      "% Quota": "49.64"
+    },
+    "Outstanding Purchases and Loans: > Emergency Assistance": {
+      "SDR Million": "14.31",
+      "% Quota": "62.50"
+    },
+    "Outstanding Purchases and Loans: > RSF Arrangements": {
+      "SDR Million": "3.12",
+      "% Quota": "13.64"
+    },
+    "Outstanding Purchases and Loans: > Extended Arrangements": {
+      "SDR Million": "77.17",
+      "% Quota": "336.97"
+    }
+  },
+  "units": "SDR Million",
+  "notes": ""
+}

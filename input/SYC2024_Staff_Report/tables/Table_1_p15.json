@@ -1,0 +1,123 @@
+{
+  "table_id": "Table_1_p15",
+  "table_title": "Seychelles: Operations of the Central Government, 2023",
+  "page_num": 15,
+  "columns": [
+    "2023_First Review Projections",
+    "2023_Outturn",
+    "Difference_SR million",
+    "Difference_Percent of revised GDP"
+  ],
+  "data": {
+    "Revenue": {
+      "2023_First Review Projections": "9944",
+      "2023_Outturn": "9726",
+      "Difference_SR million": "-218",
+      "Difference_Percent of revised GDP": "-0.7"
+    },
+    "Taxes": {
+      "2023_First Review Projections": "8431",
+      "2023_Outturn": "8169",
+      "Difference_SR million": "-262",
+      "Difference_Percent of revised GDP": "-0.9"
+    },
+    "Grants": {
+      "2023_First Review Projections": "367",
+      "2023_Outturn": "260",
+      "Difference_SR million": "-107",
+      "Difference_Percent of revised GDP": "-0.4"
+    },
+    "Other revenue": {
+      "2023_First Review Projections": "1146",
+      "2023_Outturn": "1297",
+      "Difference_SR million": "152",
+      "Difference_Percent of revised GDP": "0.5"
+    },
+    "Expenditure and net lending": {
+      "2023_First Review Projections": "10751",
+      "2023_Outturn": "10094",
+      "Difference_SR million": "-657",
+      "Difference_Percent of revised GDP": "-2.2"
+    },
+    "Expense": {
+      "2023_First Review Projections": "9515",
+      "2023_Outturn": "8945",
+      "Difference_SR million": "-569",
+      "Difference_Percent of revised GDP": "-1.9"
+    },
+    "Wages and salaries": {
+      "2023_First Review Projections": "3264",
+      "2023_Outturn": "3009",
+      "Difference_SR million": "-254",
+      "Difference_Percent of revised GDP": "-0.8"
+    },
+    "Purchase of goods and services": {
+      "2023_First Review Projections": "3904",
+      "2023_Outturn": "3582",
+      "Difference_SR million": "-322",
+      "Difference_Percent of revised GDP": "-1.1"
+    },
+    "Interest": {
+      "2023_First Review Projections": "804",
+      "2023_Outturn": "875",
+      "Difference_SR million": "71",
+      "Difference_Percent of revised GDP": "0.2"
+    },
+    "Transfers": {
+      "2023_First Review Projections": "1542",
+      "2023_Outturn": "1478",
+      "Difference_SR million": "-64",
+      "Difference_Percent of revised GDP": "-0.2"
+    },
+    "Capital expenditure": {
+      "2023_First Review Projections": "1183",
+      "2023_Outturn": "1147",
+      "Difference_SR million": "-36",
+      "Difference_Percent of revised GDP": "-0.1"
+    },
+    "Net lending, contingency": {
+      "2023_First Review Projections": "53",
+      "2023_Outturn": "2",
+      "Difference_SR million": "-51",
+      "Difference_Percent of revised GDP": "-0.2"
+    },
+    "Primary balance": {
+      "2023_First Review Projections": "-3",
+      "2023_Outturn": "507",
+      "Difference_SR million": "510",
+      "Difference_Percent of revised GDP": "1.7"
+    },
+    "Overall balance": {
+      "2023_First Review Projections": "-807",
+      "2023_Outturn": "-368",
+      "Difference_SR million": "439",
+      "Difference_Percent of revised GDP": "1.5"
+    },
+    "Financing": {
+      "2023_First Review Projections": "807",
+      "2023_Outturn": "368",
+      "Difference_SR million": "-439",
+      "Difference_Percent of revised GDP": "-1.5"
+    },
+    "Domestic": {
+      "2023_First Review Projections": "-106",
+      "2023_Outturn": "-296",
+      "Difference_SR million": "-190",
+      "Difference_Percent of revised GDP": "-0.7"
+    },
+    "Foreign": {
+      "2023_First Review Projections": "896",
+      "2023_Outturn": "136",
+      "Difference_SR million": "-762",
+      "Difference_Percent of revised GDP": "-2.5"
+    },
+    "Other flows": {
+      "2023_First Review Projections": "16",
+      "2023_Outturn": "529",
+      "Difference_SR million": "513",
+      "Difference_Percent of revised GDP": "1.7"
+    }
+  },
+  "units": "Millions of Seychelles rupees",
+  "notes": "Sources: Seychellois authorities; and IMF staff estimates and projections."
+}

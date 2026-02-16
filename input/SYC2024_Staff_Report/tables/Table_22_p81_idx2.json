@@ -1,0 +1,100 @@
+{
+  "table_id": "Table_22_p81",
+  "table_title": "Germany: Regression Estimation",
+  "page_num": 81,
+  "columns": [
+    "Variable",
+    "Coefficient",
+    "Std. Error",
+    "t-Statistic",
+    "Prob."
+  ],
+  "data": {
+    "D(VADE)": {
+      "Variable": "D(VADE)",
+      "Coefficient": "17.20786",
+      "Std. Error": "4.594697",
+      "t-Statistic": "3.745157",
+      "Prob.": "0.0003"
+    },
+    "D(RERDE)": {
+      "Variable": "D(RERDE)",
+      "Coefficient": "0.288988",
+      "Std. Error": "0.743545",
+      "t-Statistic": "0.388662",
+      "Prob.": "0.6986"
+    },
+    "D(RERDE(-1))": {
+      "Variable": "D(RERDE(-1))",
+      "Coefficient": "0.471154",
+      "Std. Error": "0.745676",
+      "t-Statistic": "0.631847",
+      "Prob.": "0.5293"
+    },
+    "D(RERDE(-2))": {
+      "Variable": "D(RERDE(-2))",
+      "Coefficient": "-2.348505",
+      "Std. Error": "0.788183",
+      "t-Statistic": "-2.979643",
+      "Prob.": "0.0038"
+    },
+    "D(RERDE(-3))": {
+      "Variable": "D(RERDE(-3))",
+      "Coefficient": "-0.106088",
+      "Std. Error": "0.714092",
+      "t-Statistic": "-0.148563",
+      "Prob.": "0.8823"
+    },
+    "D(REMUDE)": {
+      "Variable": "D(REMUDE)",
+      "Coefficient": "1.263629",
+      "Std. Error": "1.296411",
+      "t-Statistic": "0.974713",
+      "Prob.": "0.3326"
+    },
+    "D(REMUDE(-1))": {
+      "Variable": "D(REMUDE(-1))",
+      "Coefficient": "0.157839",
+      "Std. Error": "1.231546",
+      "t-Statistic": "0.128163",
+      "Prob.": "0.8983"
+    },
+    "D(REMUDE(-2))": {
+      "Variable": "D(REMUDE(-2))",
+      "Coefficient": "0.411031",
+      "Std. Error": "1.165736",
+      "t-Statistic": "0.352594",
+      "Prob.": "0.7253"
+    },
+    "D(REMUDE(-3))": {
+      "Variable": "D(REMUDE(-3))",
+      "Coefficient": "-0.507135",
+      "Std. Error": "1.224871",
+      "t-Statistic": "-0.414032",
+      "Prob.": "0.6800"
+    },
+    "D(DUMCOV)": {
+      "Variable": "D(DUMCOV)",
+      "Coefficient": "-4.489547",
+      "Std. Error": "0.476370",
+      "t-Statistic": "-9.424500",
+      "Prob.": "0.0000"
+    },
+    "ECT(-1)": {
+      "Variable": "ECT(-1)",
+      "Coefficient": "-0.811624",
+      "Std. Error": "0.104994",
+      "t-Statistic": "-7.730203",
+      "Prob.": "0.0000"
+    },
+    "C": {
+      "Variable": "C",
+      "Coefficient": "-0.116147",
+      "Std. Error": "0.060395",
+      "t-Statistic": "-1.923135",
+      "Prob.": "0.0580"
+    }
+  },
+  "units": "Not specified",
+  "notes": "R-squared 0.810011 Mean dependent var 0.015682\nAdjusted R-squared 0.783887 S.D. dependent var 1.047045\nS.E. of regression 0.486750 Akaike info criterion 1.518973\nSum squared resid 18.50735 Schwarz criterion 1.818973\nLog likelihood -57.47673 Hannan-Quinn criter. 1.636973\nDurbin-Watson stat 2.008973"
+}

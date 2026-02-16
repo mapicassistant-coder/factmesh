@@ -1,0 +1,1 @@
+"""MacroProof — Automated macro-consistency verification for IMF Staff Reports."""

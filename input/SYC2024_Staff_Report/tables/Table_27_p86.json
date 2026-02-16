@@ -1,0 +1,87 @@
+{
+  "table_id": "Table_27_p86",
+  "table_title": "Russia: Unit Root Test Results Table (ADF)",
+  "page_num": 86,
+  "columns": [
+    "VARU",
+    "REERU",
+    "REMRURU",
+    "GRU"
+  ],
+  "data": {
+    "At Level_With Constant_t-Statistic": {
+      "VARU": "-4.0057",
+      "REERU": "-2.03",
+      "REMRURU": "-2.9470",
+      "GRU": "-2.5270"
+    },
+    "At Level_With Constant_Prob.": {
+      "VARU": "0.0021",
+      "REERU": "0.0274",
+      "REMRURU": "0.0438",
+      "GRU": "0.1124"
+    },
+    "At Level_With Constant & Trend_t-Statistic": {
+      "VARU": "-4.9253",
+      "REERU": "-1.9433",
+      "REMRURU": "-2.7327",
+      "GRU": "-2.0946"
+    },
+    "At Level_With Constant & Trend_Prob.": {
+      "VARU": "0.0006",
+      "REERU": "0.2639",
+      "REMRURU": "0.2262",
+      "GRU": "0.5418"
+    },
+    "At Level_Without Constant & Trend_t-Statistic": {
+      "VARU": "-2.3898",
+      "REERU": "1.2312",
+      "REMRURU": "3.2945",
+      "GRU": "4.1450"
+    },
+    "At Level_Without Constant & Trend_Prob.": {
+      "VARU": "0.5790",
+      "REERU": "0.9435",
+      "REMRURU": "0.9997",
+      "GRU": "1.0000"
+    },
+    "At First Difference_d(VARU)_t-Statistic": {
+      "VARU": "-9.6532",
+      "REERU": "-6.8763",
+      "REMRURU": "-9.5896",
+      "GRU": "-6.4791"
+    },
+    "At First Difference_d(VARU)_Prob.": {
+      "VARU": "0.0000",
+      "REERU": "0.0000",
+      "REMRURU": "0.0000",
+      "GRU": "0.0000"
+    },
+    "At First Difference_With Constant & Trend_t-Statistic": {
+      "VARU": "-9.5994",
+      "REERU": "-7.0272",
+      "REMRURU": "-9.7962",
+      "GRU": "-6.8875"
+    },
+    "At First Difference_With Constant & Trend_Prob.": {
+      "VARU": "0.0000",
+      "REERU": "0.0000",
+      "REMRURU": "0.0000",
+      "GRU": "0.0000"
+    },
+    "At First Difference_Without Constant & Trend_t-Statistic": {
+      "VARU": "-9.6746",
+      "REERU": "-6.5167",
+      "REMRURU": "-8.5559",
+      "GRU": "-4.2949"
+    },
+    "At First Difference_Without Constant & Trend_Prob.": {
+      "VARU": "0.0000",
+      "REERU": "0.0000",
+      "REMRURU": "0.0000",
+      "GRU": "0.0000"
+    }
+  },
+  "units": "Not specified",
+  "notes": "a: (*)Significant at the 10%; (**)Significant at the 5%; (***) Significant at the 1% and (no) Not Significant\nb: Lag Length based on SIC\nc: Probability based on MacKinnon (1996) one-sided p-values."
+}

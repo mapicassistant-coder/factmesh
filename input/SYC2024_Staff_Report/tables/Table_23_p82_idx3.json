@@ -1,0 +1,100 @@
+{
+  "table_id": "Table_23_p82",
+  "table_title": "France: Regression Estimation",
+  "page_num": 82,
+  "columns": [
+    "Variable",
+    "Coefficient",
+    "Std. Error",
+    "t-Statistic",
+    "Prob."
+  ],
+  "data": {
+    "D(REMURFR)": {
+      "Variable": "D(VAFR)",
+      "Coefficient": "0.914999",
+      "Std. Error": "1.064320",
+      "t-Statistic": "0.859703",
+      "Prob.": "0.3925"
+    },
+    "D(REFRR)": {
+      "Variable": null,
+      "Coefficient": "1.049918",
+      "Std. Error": "0.615866",
+      "t-Statistic": "1.704784",
+      "Prob.": "0.0921"
+    },
+    "D(REMURFR(-1))": {
+      "Variable": null,
+      "Coefficient": "-1.013959",
+      "Std. Error": "1.063570",
+      "t-Statistic": "-0.953354",
+      "Prob.": "0.3433"
+    },
+    "D(REFRR(-1))": {
+      "Variable": null,
+      "Coefficient": "0.980039",
+      "Std. Error": "0.655978",
+      "t-Statistic": "1.494012",
+      "Prob.": "0.1391"
+    },
+    "D(REMURFR(-2))": {
+      "Variable": null,
+      "Coefficient": "-0.132259",
+      "Std. Error": "1.028802",
+      "t-Statistic": "-0.128556",
+      "Prob.": "0.8980"
+    },
+    "D(REFRR(-2))": {
+      "Variable": null,
+      "Coefficient": "-1.152456",
+      "Std. Error": "0.664973",
+      "t-Statistic": "-1.733147",
+      "Prob.": "0.0869"
+    },
+    "D(REMURFR(-3))": {
+      "Variable": null,
+      "Coefficient": "0.663892",
+      "Std. Error": "0.989873",
+      "t-Statistic": "0.671294",
+      "Prob.": "0.5040"
+    },
+    "D(REFRR(-3))": {
+      "Variable": null,
+      "Coefficient": "-0.218754",
+      "Std. Error": "0.595768",
+      "t-Statistic": "-0.367180",
+      "Prob.": "0.7145"
+    },
+    "D(GFR)": {
+      "Variable": null,
+      "Coefficient": "14.92586",
+      "Std. Error": "3.907854",
+      "t-Statistic": "3.819450",
+      "Prob.": "0.0003"
+    },
+    "ECT(-1)": {
+      "Variable": null,
+      "Coefficient": "-0.623804",
+      "Std. Error": "0.149156",
+      "t-Statistic": "-4.182215",
+      "Prob.": "0.0001"
+    },
+    "D(DUMCOV)": {
+      "Variable": null,
+      "Coefficient": "-3.804928",
+      "Std. Error": "0.488534",
+      "t-Statistic": "-7.784464",
+      "Prob.": "0.0000"
+    },
+    "C": {
+      "Variable": null,
+      "Coefficient": "-0.079016",
+      "Std. Error": "0.049833",
+      "t-Statistic": "-1.585631",
+      "Prob.": "0.1168"
+    }
+  },
+  "units": "Not specified",
+  "notes": "R-squared 0.793425 Mean dependent var 0.004285\nAdjusted R-squared 0.766045 S.D. dependent var 0.869291"
+}

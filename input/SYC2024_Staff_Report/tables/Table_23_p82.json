@@ -1,0 +1,44 @@
+{
+  "table_id": "Table_23_p82",
+  "table_title": "France: Unit Root Test Results Table (ADF)",
+  "page_num": 82,
+  "columns": [
+    "Level",
+    "VAFR",
+    "REFRR",
+    "REMURFR",
+    "GFR"
+  ],
+  "data": {
+    "With Constant": {
+      "Level": "Prob.",
+      "VAFR": "0.0000",
+      "REFRR": "0.0000",
+      "REMURFR": "0.0000",
+      "GFR": "0.0000"
+    },
+    "With Constant & Trend": {
+      "Level": "Prob.",
+      "VAFR": "0.0000",
+      "REFRR": "0.0000",
+      "REMURFR": "0.0000",
+      "GFR": "0.0000"
+    },
+    "Without Constant & Trend": {
+      "Level": "Prob.",
+      "VAFR": "0.5148",
+      "REFRR": "0.7555",
+      "REMURFR": "0.7034",
+      "GFR": "0.9995"
+    },
+    "At First Difference": {
+      "Level": "Prob.",
+      "VAFR": "0.0000",
+      "REFRR": "0.0001",
+      "REMURFR": "0.0001",
+      "GFR": "0.0001"
+    }
+  },
+  "units": "Not specified",
+  "notes": "a: (*)Significant at the 10%; (**)Significant at the 5%; (***) Significant at the 1% and (no) Not Significant\nb: Lag Length based on SIC\nc: Probability based on MacKinnon (1996) one-sided p-values."
+}

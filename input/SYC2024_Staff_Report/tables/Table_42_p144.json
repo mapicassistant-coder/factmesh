@@ -1,0 +1,37 @@
+{
+  "table_id": "Table_42_p144",
+  "table_title": "Projected Obligations to the Fund (SDR Million: based on existing use of resources and present holdings of SDRs):",
+  "page_num": 144,
+  "columns": [
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028"
+  ],
+  "data": {
+    "Principal": {
+      "2024": "10.09",
+      "2025": "6.95",
+      "2026": "8.82",
+      "2027": "11.63",
+      "2028": "11.66"
+    },
+    "Charge/interest": {
+      "2024": "4.66",
+      "2025": "5.46",
+      "2026": "5.28",
+      "2027": "4.53",
+      "2028": "3.63"
+    },
+    "Total": {
+      "2024": "14.75",
+      "2025": "12.41",
+      "2026": "14.10",
+      "2027": "16.16",
+      "2028": "15.29"
+    }
+  },
+  "units": "SDR Million",
+  "notes": ""
+}

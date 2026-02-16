@@ -1,0 +1,29 @@
+{
+  "table_id": "Table_26_p85",
+  "table_title": "Switzerland: Unit Root test for Error Correction Term (ECT)",
+  "page_num": 85,
+  "columns": [
+    "t-Statistic",
+    "Prob.*"
+  ],
+  "data": {
+    "Augmented Dickey-Fuller test statistic": {
+      "t-Statistic": "-3.019763",
+      "Prob.*": "0.0370"
+    },
+    "Test critical values: 1% level": {
+      "t-Statistic": "-3.50928",
+      "Prob.*": null
+    },
+    "Test critical values: 5% level": {
+      "t-Statistic": "-2.89592",
+      "Prob.*": null
+    },
+    "Test critical values: 10% level": {
+      "t-Statistic": "-2.58517",
+      "Prob.*": null
+    }
+  },
+  "units": "Not specified",
+  "notes": "*MacKinnon (1996) one-sided p-values."
+}

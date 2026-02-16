@@ -1,0 +1,235 @@
+{
+  "tables_found": 26,
+  "narrative_claims_found": 152,
+  "columns_covered": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029",
+    "2030",
+    "2031",
+    "2032",
+    "2033",
+    "2034"
+  ],
+  "extraction_notes": "Charts/figures detected on pages [13, 14, 18, 19, 26, 28, 38, 39, 40, 41, 42, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 67, 73, 75, 79, 95, 97, 98, 99, 100, 143] — data not extracted (MVP scope).",
+  "table_files": [
+    {
+      "table_id": "Table_1_p15",
+      "table_title": "Seychelles: Operations of the Central Government, 2023",
+      "filename": "tables/Table_1_p15.json",
+      "page_num": 15,
+      "rows": 18,
+      "columns": 4
+    },
+    {
+      "table_id": "Table_3_p23",
+      "table_title": "B. Public Debt Management and Government Financing",
+      "filename": "tables/Table_3_p23.json",
+      "page_num": 23,
+      "rows": 17,
+      "columns": 2
+    },
+    {
+      "table_id": "Table_4_p47",
+      "table_title": "Table 4. Seychelles: Depository Corporations Survey and Central Bank Accounts, 2019–27",
+      "filename": "tables/Table_4_p47.json",
+      "page_num": 47,
+      "rows": 30,
+      "columns": 9
+    },
+    {
+      "table_id": "Table_1_p49",
+      "table_title": "Table 1. Seychelles: Gross Financing Requirements and Sources, 2021–29",
+      "filename": "tables/Table_1_p49.json",
+      "page_num": 49,
+      "rows": 26,
+      "columns": 9
+    },
+    {
+      "table_id": "Table_9_p52",
+      "table_title": "Table 9. Seychelles: Decomposition of Public Debt and Debt Service by Creditor, 2023-251",
+      "filename": "tables/Table_9_p52.json",
+      "page_num": 52,
+      "rows": 25,
+      "columns": 9
+    },
+    {
+      "table_id": "Table_13_p58",
+      "table_title": "Figure 4. Seychelles: Baseline Scenario",
+      "filename": "tables/Table_13_p58.json",
+      "page_num": 58,
+      "rows": 24,
+      "columns": 12
+    },
+    {
+      "table_id": "Table_16_p66",
+      "table_title": "Seychelles: EBA-lite Model Results, 2023",
+      "filename": "tables/Table_16_p66.json",
+      "page_num": 66,
+      "rows": 10,
+      "columns": 2
+    },
+    {
+      "table_id": "Table_19_p74",
+      "table_title": "Not specified",
+      "filename": "tables/Table_19_p74.json",
+      "page_num": 74,
+      "rows": 6,
+      "columns": 7
+    },
+    {
+      "table_id": "Table_20_p74",
+      "table_title": "Not specified",
+      "filename": "tables/Table_20_p74.json",
+      "page_num": 74,
+      "rows": 2,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_22_p81",
+      "table_title": "Germany: Unit Root Test Results Table (ADF)",
+      "filename": "tables/Table_22_p81.json",
+      "page_num": 81,
+      "rows": 6,
+      "columns": 8
+    },
+    {
+      "table_id": "Table_22_p81",
+      "table_title": "Germany: Regression Estimation",
+      "filename": "tables/Table_22_p81_idx2.json",
+      "page_num": 81,
+      "rows": 12,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_23_p82",
+      "table_title": "France: Unit Root Test Results Table (ADF)",
+      "filename": "tables/Table_23_p82.json",
+      "page_num": 82,
+      "rows": 4,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_23_p82",
+      "table_title": "France: Unit Root test for Error Correction Term (ECT)",
+      "filename": "tables/Table_23_p82_idx2.json",
+      "page_num": 82,
+      "rows": 4,
+      "columns": 3
+    },
+    {
+      "table_id": "Table_23_p82",
+      "table_title": "France: Regression Estimation",
+      "filename": "tables/Table_23_p82_idx3.json",
+      "page_num": 82,
+      "rows": 12,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_24_p83",
+      "table_title": "Italy: Unit Root Test Results Table (ADF)",
+      "filename": "tables/Table_24_p83.json",
+      "page_num": 83,
+      "rows": 4,
+      "columns": 9
+    },
+    {
+      "table_id": "Table_24_p83",
+      "table_title": "Italy: Regression Estimation",
+      "filename": "tables/Table_24_p83_idx2.json",
+      "page_num": 83,
+      "rows": 12,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_25_p84",
+      "table_title": "Great Britain: Regression Estimation",
+      "filename": "tables/Table_25_p84.json",
+      "page_num": 84,
+      "rows": 13,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_26_p85",
+      "table_title": "Switzerland: Unit Root Test Results Table (ADF)",
+      "filename": "tables/Table_26_p85.json",
+      "page_num": 85,
+      "rows": 12,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_26_p85",
+      "table_title": "Switzerland: Unit Root test for Error Correction Term (ECT)",
+      "filename": "tables/Table_26_p85_idx2.json",
+      "page_num": 85,
+      "rows": 4,
+      "columns": 2
+    },
+    {
+      "table_id": "Table_26_p85",
+      "table_title": "Switzerland: Regression Estimation",
+      "filename": "tables/Table_26_p85_idx3.json",
+      "page_num": 85,
+      "rows": 13,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_27_p86",
+      "table_title": "Russia: Unit Root Test Results Table (ADF)",
+      "filename": "tables/Table_27_p86.json",
+      "page_num": 86,
+      "rows": 12,
+      "columns": 4
+    },
+    {
+      "table_id": "Table_27_p86",
+      "table_title": "Russia: Unit Root test for Error Correction Term (ECT)",
+      "filename": "tables/Table_27_p86_idx2.json",
+      "page_num": 86,
+      "rows": 1,
+      "columns": 2
+    },
+    {
+      "table_id": "Table_27_p86",
+      "table_title": "Russia: Regression Estimation",
+      "filename": "tables/Table_27_p86_idx3.json",
+      "page_num": 86,
+      "rows": 14,
+      "columns": 5
+    },
+    {
+      "table_id": "Table_1_p96",
+      "table_title": "Table 1. Seychelles: Public Debt Dynamics – Baseline Scenario",
+      "filename": "tables/Table_1_p96.json",
+      "page_num": 96,
+      "rows": 6,
+      "columns": 6
+    },
+    {
+      "table_id": "Table_39_p144",
+      "table_title": "RELATIONS WITH THE FUND",
+      "filename": "tables/Table_39_p144.json",
+      "page_num": 144,
+      "rows": 8,
+      "columns": 2
+    },
+    {
+      "table_id": "Table_42_p144",
+      "table_title": "Projected Obligations to the Fund (SDR Million: based on existing use of resources and present holdings of SDRs):",
+      "filename": "tables/Table_42_p144.json",
+      "page_num": 144,
+      "rows": 3,
+      "columns": 5
+    }
+  ]
+}

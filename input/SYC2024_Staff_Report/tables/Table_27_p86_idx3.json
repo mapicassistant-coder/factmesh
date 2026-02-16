@@ -1,0 +1,114 @@
+{
+  "table_id": "Table_27_p86",
+  "table_title": "Russia: Regression Estimation",
+  "page_num": 86,
+  "columns": [
+    "Variable",
+    "Coefficient",
+    "Std. Error",
+    "t-Statistic",
+    "Prob."
+  ],
+  "data": {
+    "D(RERRU)": {
+      "Variable": "D(RERRU)",
+      "Coefficient": "2.441792",
+      "Std. Error": "1.024590",
+      "t-Statistic": "2.383190",
+      "Prob.": "0.0196"
+    },
+    "D(REMRURU)": {
+      "Variable": "D(REMRURU)",
+      "Coefficient": "1.209812",
+      "Std. Error": "1.654205",
+      "t-Statistic": "0.731356",
+      "Prob.": "0.4668"
+    },
+    "D(GRU)": {
+      "Variable": "D(GRU)",
+      "Coefficient": "2.776364",
+      "Std. Error": "2.418330",
+      "t-Statistic": "1.148050",
+      "Prob.": "0.2545"
+    },
+    "D(RERRU(-1))": {
+      "Variable": "D(RERRU(-1))",
+      "Coefficient": "-0.876316",
+      "Std. Error": "1.041234",
+      "t-Statistic": "-0.841613",
+      "Prob.": "0.4026"
+    },
+    "D(REMRURU(-1))": {
+      "Variable": "D(REMRURU(-1))",
+      "Coefficient": "-2.535596",
+      "Std. Error": "1.543080",
+      "t-Statistic": "-1.643204",
+      "Prob.": "0.1044"
+    },
+    "D(RERRU(-2))": {
+      "Variable": "D(RERRU(-2))",
+      "Coefficient": "-0.373541",
+      "Std. Error": "1.091464",
+      "t-Statistic": "-0.342239",
+      "Prob.": "0.7331"
+    },
+    "D(REMRURU(-2))": {
+      "Variable": "D(REMRURU(-2))",
+      "Coefficient": "-0.093116",
+      "Std. Error": "1.552337",
+      "t-Statistic": "0.581778",
+      "Prob.": "0.5624"
+    },
+    "D(REMRURU(-3))": {
+      "Variable": "D(REMRURU(-3))",
+      "Coefficient": "-1.499656",
+      "Std. Error": "1.591497",
+      "t-Statistic": "-0.942293",
+      "Prob.": "0.3490"
+    },
+    "D(GRU(-1))": {
+      "Variable": "D(GRU(-1))",
+      "Coefficient": "1.488214",
+      "Std. Error": "2.415432",
+      "t-Statistic": "0.616127",
+      "Prob.": "0.5396"
+    },
+    "D(GRU(-2))": {
+      "Variable": "D(GRU(-2))",
+      "Coefficient": "2.503550",
+      "Std. Error": "2.235535",
+      "t-Statistic": "1.119888",
+      "Prob.": "0.2662"
+    },
+    "ECT(-1)": {
+      "Variable": "ECT(-1)",
+      "Coefficient": "-0.706947",
+      "Std. Error": "0.107866",
+      "t-Statistic": "-6.553938",
+      "Prob.": "0.0000"
+    },
+    "D(DUMWAR)": {
+      "Variable": "D(DUMWAR)",
+      "Coefficient": "-0.813248",
+      "Std. Error": "0.676994",
+      "t-Statistic": "-1.201265",
+      "Prob.": "0.2333"
+    },
+    "D(DUMCOV)": {
+      "Variable": "D(DUMCOV)",
+      "Coefficient": "-3.527681",
+      "Std. Error": "0.549321",
+      "t-Statistic": "-6.421888",
+      "Prob.": "0.0000"
+    },
+    "C": {
+      "Variable": "C",
+      "Coefficient": "-0.104629",
+      "Std. Error": "0.114336",
+      "t-Statistic": "-0.930844",
+      "Prob.": "0.3548"
+    }
+  },
+  "units": "Not specified",
+  "notes": "R-squared 0.612542 Mean dependent var 0.033515\nAdjusted R-squared 0.542095 S.D. dependent var 0.539944"
+}

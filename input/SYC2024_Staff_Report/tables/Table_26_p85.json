@@ -1,0 +1,100 @@
+{
+  "table_id": "Table_26_p85",
+  "table_title": "Switzerland: Unit Root Test Results Table (ADF)",
+  "page_num": 85,
+  "columns": [
+    "At Level",
+    "VACH",
+    "GCH",
+    "REMMUCH",
+    "RERCH"
+  ],
+  "data": {
+    "With Constant_t-Statistic": {
+      "At Level": "With Constant",
+      "VACH": "0.6899",
+      "GCH": "-0.74",
+      "REMMUCH": "-1.6492",
+      "RERCH": "-2.0614"
+    },
+    "With Constant_Prob.": {
+      "At Level": "Prob.",
+      "VACH": "0.912",
+      "GCH": "0.8303",
+      "REMMUCH": "0.4536",
+      "RERCH": "0.2607"
+    },
+    "With Constant & Trend_t-Statistic": {
+      "At Level": "With Constant & Trend",
+      "VACH": "-2.6124",
+      "GCH": "-1.7723",
+      "REMMUCH": "-1.9556",
+      "RERCH": "-2.4082"
+    },
+    "With Constant & Trend_Prob.": {
+      "At Level": "Prob.",
+      "VACH": "0.2762",
+      "GCH": "0.7105",
+      "REMMUCH": "0.6174",
+      "RERCH": "0.3730"
+    },
+    "Without Constant & Trend_t-Statistic": {
+      "At Level": "Without Constant & Trend",
+      "VACH": "2.5334",
+      "GCH": "2.7697",
+      "REMMUCH": "0.2963",
+      "RERCH": "0.3941"
+    },
+    "Without Constant & Trend_Prob.": {
+      "At Level": "Prob.",
+      "VACH": "0.9971",
+      "GCH": "0.9986",
+      "REMMUCH": "0.7653",
+      "RERCH": "0.7956"
+    },
+    "At First Difference_With Constant_t-Statistic": {
+      "At Level": "At First Difference",
+      "VACH": "-10.3256",
+      "GCH": "-9.6753",
+      "REMMUCH": "-6.8055",
+      "RERCH": "-7.2419"
+    },
+    "At First Difference_With Constant_Prob.": {
+      "At Level": "Prob.",
+      "VACH": "0.0001",
+      "GCH": "0.0000",
+      "REMMUCH": "0.0000",
+      "RERCH": "0.0000"
+    },
+    "At First Difference_With Constant & Trend_t-Statistic": {
+      "At Level": "With Constant & Trend",
+      "VACH": "-9.4066",
+      "GCH": "-9.6221",
+      "REMMUCH": "-6.7657",
+      "RERCH": "-7.0424"
+    },
+    "At First Difference_With Constant & Trend_Prob.": {
+      "At Level": "Prob.",
+      "VACH": "0.0000",
+      "GCH": "0.0000",
+      "REMMUCH": "0.0000",
+      "RERCH": "0.0000"
+    },
+    "At First Difference_Without Constant & Trend_t-Statistic": {
+      "At Level": "Without Constant & Trend",
+      "VACH": "-6.3080",
+      "GCH": "-9.0266",
+      "REMMUCH": "-6.8281",
+      "RERCH": "-7.2338"
+    },
+    "At First Difference_Without Constant & Trend_Prob.": {
+      "At Level": "Prob.",
+      "VACH": "0.0000",
+      "GCH": "0.0000",
+      "REMMUCH": "0.0000",
+      "RERCH": "0.0000"
+    }
+  },
+  "units": "Not specified",
+  "notes": "a: (*)Significant at the 10%; (**)Significant at the 5%; (***) Significant at the 1% and (no) Not Significant\nb: Lag length based on SIC\nc: Probability based on MacKinnon (1996) one-sided p-values."
+}

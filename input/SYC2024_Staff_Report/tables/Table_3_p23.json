@@ -1,0 +1,81 @@
+{
+  "table_id": "Table_3_p23",
+  "table_title": "B. Public Debt Management and Government Financing",
+  "page_num": 23,
+  "columns": [
+    "Volume of new debt, US million",
+    "Present value of new debt, US mil"
+  ],
+  "data": {
+    "Total external financing": {
+      "Volume of new debt, US million": "174",
+      "Present value of new debt, US mil": null
+    },
+    "Sources of debt financing": {
+      "Volume of new debt, US million": "149",
+      "Present value of new debt, US mil": "130"
+    },
+    "Concessional debt, of which": {
+      "Volume of new debt, US million": "15",
+      "Present value of new debt, US mil": "9"
+    },
+    "Multilateral": {
+      "Volume of new debt, US million": "9",
+      "Present value of new debt, US mil": "5"
+    },
+    "Bilateral": {
+      "Volume of new debt, US million": "6",
+      "Present value of new debt, US mil": "4"
+    },
+    "Non-concessional debt, of which": {
+      "Volume of new debt, US million": "134",
+      "Present value of new debt, US mil": "121"
+    },
+    "Semi-concessional debt": {
+      "Volume of new debt, US million": "134",
+      "Present value of new debt, US mil": "121"
+    },
+    "Commercial term": {
+      "Volume of new debt, US million": "0",
+      "Present value of new debt, US mil": "0"
+    },
+    "Uses of debt financing": {
+      "Volume of new debt, US million": "149",
+      "Present value of new debt, US mil": null
+    },
+    "Infrastructure": {
+      "Volume of new debt, US million": "10",
+      "Present value of new debt, US mil": null
+    },
+    "Budget financing": {
+      "Volume of new debt, US million": "134",
+      "Present value of new debt, US mil": null
+    },
+    "Guarantee (parastal)": {
+      "Volume of new debt, US million": "5",
+      "Present value of new debt, US mil": null
+    },
+    "Sources/uses of grant financing": {
+      "Volume of new debt, US million": "26",
+      "Present value of new debt, US mil": null
+    },
+    "Budgetary grants": {
+      "Volume of new debt, US million": "0",
+      "Present value of new debt, US mil": null
+    },
+    "Project grants": {
+      "Volume of new debt, US million": "26",
+      "Present value of new debt, US mil": null
+    },
+    "2025": {
+      "Volume of new debt, US million": "204",
+      "Present value of new debt, US mil": null
+    },
+    "2026": {
+      "Volume of new debt, US million": "157",
+      "Present value of new debt, US mil": null
+    }
+  },
+  "units": "US$ million",
+  "notes": "Sources: Authorities’ data and IMF staff calculations.\n1/ Contracting and guaranteeing of new debt.\n2/ Debt with a grant element that exceeds a minimum threshold of 35 percent.\n3/ Debt with a positive grant element but does not meet the minimum grant element.\n4/ Debt without a positive grant element."
+}

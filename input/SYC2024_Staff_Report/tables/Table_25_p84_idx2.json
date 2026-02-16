@@ -1,0 +1,17 @@
+{
+  "table_id": "Table_25_p84",
+  "table_title": "Great Britain: Unit Root Test for Error Correction Term (ECT)",
+  "page_num": 84,
+  "columns": [
+    "t-Statistic",
+    "Prob."
+  ],
+  "data": {
+    "Exogenous: Constant": {
+      "t-Statistic": "-8.409178",
+      "Prob.": "0.0000"
+    }
+  },
+  "units": "Not specified",
+  "notes": "*MacKinnon (1996) one-sided p-values."
+}

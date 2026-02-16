@@ -1,0 +1,79 @@
+{
+  "table_id": "Table_22_p81",
+  "table_title": "Germany: Unit Root Test Results Table (ADF)",
+  "page_num": 81,
+  "columns": [
+    "At Level_VADE",
+    "At Level_GDE",
+    "At Level_RERDE",
+    "At Level_REMUDE",
+    "At First Difference_d(VADE)",
+    "At First Difference_d(GDE)",
+    "At First Difference_d(RERDE)",
+    "At First Difference_d(REMUDE)"
+  ],
+  "data": {
+    "T-Statistic": {
+      "At Level_VADE": "-5.8736",
+      "At Level_GDE": "0.5967",
+      "At Level_RERDE": "-2.2635",
+      "At Level_REMUDE": "-1.0075",
+      "At First Difference_d(VADE)": "-11.8872",
+      "At First Difference_d(GDE)": "-11.6673",
+      "At First Difference_d(RERDE)": "-7.1072",
+      "At First Difference_d(REMUDE)": "-9.6970"
+    },
+    "Prob.": {
+      "At Level_VADE": "0.0000",
+      "At Level_GDE": "0.9890",
+      "At Level_RERDE": "0.1860",
+      "At Level_REMUDE": "0.7481",
+      "At First Difference_d(VADE)": "0.0001",
+      "At First Difference_d(GDE)": "0.0000",
+      "At First Difference_d(RERDE)": "0.0000",
+      "At First Difference_d(REMUDE)": "0.0000"
+    },
+    "With Constant & Trend_T-Statistic": {
+      "At Level_VADE": "-6.1090",
+      "At Level_GDE": "-3.3266",
+      "At Level_RERDE": "-2.3363",
+      "At Level_REMUDE": "-1.2121",
+      "At First Difference_d(VADE)": "-11.8259",
+      "At First Difference_d(GDE)": "-11.7505",
+      "At First Difference_d(RERDE)": "-7.1136",
+      "At First Difference_d(REMUDE)": "-9.6437"
+    },
+    "With Constant & Trend_Prob.": {
+      "At Level_VADE": "0.0000",
+      "At Level_GDE": "0.1280",
+      "At Level_RERDE": "0.4013",
+      "At Level_REMUDE": "0.9020",
+      "At First Difference_d(VADE)": "0.0000",
+      "At First Difference_d(GDE)": "0.0000",
+      "At First Difference_d(RERDE)": "0.0000",
+      "At First Difference_d(REMUDE)": "0.0000"
+    },
+    "Without Constant & Trend_T-Statistic": {
+      "At Level_VADE": "0.00163",
+      "At Level_GDE": "4.1667",
+      "At Level_RERDE": "0.2917",
+      "At Level_REMUDE": "0.4067",
+      "At First Difference_d(VADE)": "-11.9448",
+      "At First Difference_d(GDE)": "-9.6978",
+      "At First Difference_d(RERDE)": "-7.1154",
+      "At First Difference_d(REMUDE)": "-9.7498"
+    },
+    "Without Constant & Trend_Prob.": {
+      "At Level_VADE": "0.0654",
+      "At Level_GDE": "1.0000",
+      "At Level_RERDE": "0.7683",
+      "At Level_REMUDE": "0.6647",
+      "At First Difference_d(VADE)": "0.0000",
+      "At First Difference_d(GDE)": "0.0000",
+      "At First Difference_d(RERDE)": "0.0000",
+      "At First Difference_d(REMUDE)": "0.0000"
+    }
+  },
+  "units": "Not specified",
+  "notes": "a: (*)Significant at the 10%; (**)Significant at the 5%; (***) Significant at the 1% and (no) Not Significant\nb: Lag Length based on SIC\nc: Probability based on MacKinnon (1996) one-sided p-values."
+}

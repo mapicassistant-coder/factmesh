@@ -1,0 +1,114 @@
+{
+  "table_id": "Table_24_p83",
+  "table_title": "Italy: Regression Estimation",
+  "page_num": 83,
+  "columns": [
+    "Variable",
+    "Coefficient",
+    "Std. Error",
+    "t-Statistic",
+    "Prob."
+  ],
+  "data": {
+    "D(REMUIT)": {
+      "Variable": "D(REMUIT)",
+      "Coefficient": "1.348464",
+      "Std. Error": "0.934414",
+      "t-Statistic": "1.443113",
+      "Prob.": "0.1529"
+    },
+    "D(RERIT)": {
+      "Variable": "D(RERIT)",
+      "Coefficient": "0.891294",
+      "Std. Error": "0.542200",
+      "t-Statistic": "1.634847",
+      "Prob.": "0.1041"
+    },
+    "D(GIT)": {
+      "Variable": "D(GIT)",
+      "Coefficient": "11.74176",
+      "Std. Error": "2.475025",
+      "t-Statistic": "4.744097",
+      "Prob.": "0.0000"
+    },
+    "D(REMUIT(-1))": {
+      "Variable": "D(REMUIT(-1))",
+      "Coefficient": "-0.276404",
+      "Std. Error": "0.856071",
+      "t-Statistic": "-0.320773",
+      "Prob.": "0.7492"
+    },
+    "D(RERIT(-1))": {
+      "Variable": "D(RERIT(-1))",
+      "Coefficient": "0.831897",
+      "Std. Error": "0.571426",
+      "t-Statistic": "1.455825",
+      "Prob.": "0.1494"
+    },
+    "D(REMUIT(-2))": {
+      "Variable": "D(REMUIT(-2))",
+      "Coefficient": "1.691639",
+      "Std. Error": "0.835148",
+      "t-Statistic": "2.025557",
+      "Prob.": "0.0461"
+    },
+    "D(RERIT(-2))": {
+      "Variable": "D(RERIT(-2))",
+      "Coefficient": "-2.359830",
+      "Std. Error": "0.567912",
+      "t-Statistic": "-4.155273",
+      "Prob.": "0.0001"
+    },
+    "D(REMUIT(-3))": {
+      "Variable": "D(REMUIT(-3))",
+      "Coefficient": "-0.060939",
+      "Std. Error": "0.897933",
+      "t-Statistic": "-0.076887",
+      "Prob.": "0.9389"
+    },
+    "D(RERIT(-3))": {
+      "Variable": "D(RERIT(-3))",
+      "Coefficient": "0.261538",
+      "Std. Error": "0.543737",
+      "t-Statistic": "0.481001",
+      "Prob.": "0.6318"
+    },
+    "ECT(-1)": {
+      "Variable": "ECT(-1)",
+      "Coefficient": "-0.673096",
+      "Std. Error": "0.118602",
+      "t-Statistic": "-5.675268",
+      "Prob.": "0.0000"
+    },
+    "D(DUMCOV)": {
+      "Variable": "D(DUMCOV)",
+      "Coefficient": "-4.139608",
+      "Std. Error": "0.377884",
+      "t-Statistic": "-10.95470",
+      "Prob.": "0.0000"
+    },
+    "C": {
+      "Variable": "C",
+      "Coefficient": "-0.058930",
+      "Std. Error": "0.039327",
+      "t-Statistic": "-1.498455",
+      "Prob.": "0.1380"
+    },
+    "R-squared": {
+      "Variable": "R-squared",
+      "Coefficient": "0.833925",
+      "Std. Error": null,
+      "t-Statistic": null,
+      "Prob.": "0.002224"
+    },
+    "Adjusted R-squared": {
+      "Variable": "Adjusted R-squared",
+      "Coefficient": "0.811090",
+      "Std. Error": null,
+      "t-Statistic": null,
+      "Prob.": "0.819600"
+    }
+  },
+  "units": "Not specified",
+  "notes": ""
+}
