@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FactMesh — SYC2024_Staff_Report</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6fa; color: #2d3436; padding: 20px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; color: #0a3d62; }
+  .subtitle { color: #636e72; margin-bottom: 24px; font-size: 0.95rem; }
+  .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+  .summary-card { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .summary-card .number { font-size: 2.4rem; font-weight: 700; }
+  .summary-card .label { font-size: 0.85rem; color: #636e72; margin-top: 4px; }
+  .match .number { color: #00b894; }
+  .mismatch .number { color: #d63031; }
+  .unverifiable .number { color: #fdcb6e; }
+  .qualitative .number { color: #74b9ff; }
+  .crosstable .number { color: #6c5ce7; }
+  .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 1.2rem; margin-bottom: 16px; color: #0a3d62; border-bottom: 2px solid #dfe6e9; padding-bottom: 8px; }
+  .verification { padding: 12px 16px; border-left: 4px solid; margin-bottom: 8px; border-radius: 0 8px 8px 0; background: #fafafa; }
+  .verification.MATCH { border-color: #00b894; }
+  .verification.MISMATCH { border-color: #d63031; background: #fff5f5; }
+  .verification.UNVERIFIABLE { border-color: #fdcb6e; }
+  .verification.QUALITATIVE { border-color: #74b9ff; opacity: 0.7; }
+  .verification.INCONSISTENT { border-color: #6c5ce7; background: #f8f5ff; }
+  .verification.CONSISTENT { border-color: #a29bfe; opacity: 0.7; }
+  .verification .status { font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .verification.MATCH .status { color: #00b894; }
+  .verification.MISMATCH .status { color: #d63031; }
+  .verification.UNVERIFIABLE .status { color: #e17055; }
+  .verification.QUALITATIVE .status { color: #74b9ff; }
+  .verification.INCONSISTENT .status { color: #6c5ce7; }
+  .verification.CONSISTENT .status { color: #a29bfe; }
+  .verification .claim { margin-top: 4px; font-size: 0.9rem; color: #2d3436; }
+  .verification .detail { margin-top: 4px; font-size: 0.8rem; color: #636e72; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; background: #dfe6e9; color: #636e72; margin-right: 4px; }
+  .tag.llm { background: #a29bfe; color: white; }
+  .progress-bar { height: 32px; border-radius: 8px; overflow: hidden; display: flex; margin-bottom: 8px; }
+  .progress-bar .segment { display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; font-weight: 600; }
+  .progress-bar .segment.match { background: #00b894; }
+  .progress-bar .segment.mismatch { background: #d63031; }
+  .progress-bar .segment.unverifiable { background: #fdcb6e; color: #2d3436; }
+  .progress-bar .segment.qualitative { background: #74b9ff; }
+  .filter-bar { margin-bottom: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn { padding: 6px 16px; border-radius: 20px; border: 1px solid #dfe6e9; background: white; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: #0a3d62; color: white; border-color: #0a3d62; }
+  .roadmap { display: flex; gap: 0; margin: 16px 0; }
+  .roadmap-node { flex: 1; padding: 16px; text-align: center; position: relative; }
+  .roadmap-node .node-num { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; }
+  .roadmap-node.active .node-num { background: #00b894; color: white; }
+  .roadmap-node.future .node-num { background: #dfe6e9; color: #636e72; }
+  .roadmap-node .node-title { font-size: 0.85rem; font-weight: 600; }
+  .roadmap-node .node-desc { font-size: 0.75rem; color: #636e72; margin-top: 4px; }
+  .roadmap-node::after { content: ''; position: absolute; top: 34px; right: -8px; width: 16px; height: 2px; background: #dfe6e9; }
+  .roadmap-node:last-child::after { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>FactMesh Verification Report</h1>
+  <p class="subtitle">SYC2024_Staff_Report — 152 claims verified against 20 tables</p>
+
+  <div class="section">
+    <h2>Roadmap</h2>
+    <div class="roadmap">
+      <div class="roadmap-node active">
+        <div class="node-num">1</div>
+        <div class="node-title">Single Document</div>
+        <div class="node-desc">Text vs. own tables</div>
+      </div>
+      <div class="roadmap-node future">
+        <div class="node-num">2</div>
+        <div class="node-title">Cross-Vintage</div>
+        <div class="node-desc">vs. WEO data</div>
+      </div>
+      <div class="roadmap-node future">
+        <div class="node-num">3</div>
+        <div class="node-title">Cross-Document</div>
+        <div class="node-desc">vs. previous report</div>
+      </div>
+      <div class="roadmap-node future">
+        <div class="node-num">4</div>
+        <div class="node-title">Knowledge Graph</div>
+        <div class="node-desc">Bitemporal reasoning</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card match">
+      <div class="number">51</div>
+      <div class="label">Verified Match</div>
+    </div>
+    <div class="summary-card mismatch">
+      <div class="number">19</div>
+      <div class="label">Mismatch</div>
+    </div>
+    <div class="summary-card unverifiable">
+      <div class="number">46</div>
+      <div class="label">Unverifiable</div>
+    </div>
+    <div class="summary-card qualitative">
+      <div class="number">73</div>
+      <div class="label">Qualitative</div>
+    </div>
+    <div class="summary-card crosstable">
+      <div class="number">45</div>
+      <div class="label">Cross-Table Issues</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Verification Coverage</h2>
+    <div class="progress-bar">
+      <div class="segment match" style="width:26.984126984126984%">51</div><div class="segment mismatch" style="width:10.052910052910052%">19</div><div class="segment unverifiable" style="width:24.33862433862434%">46</div><div class="segment qualitative" style="width:38.62433862433862%">73</div>
+    </div>
+    <p style="font-size: 0.85rem; color: #636e72; margin-top: 8px;">
+      44% of numeric claims verified against source tables
+    </p>
+  </div>
+
+  
+        <div class="section" style="border: 2px solid #d63031;">
+          <h2 style="color: #d63031;">Claim-Table Mismatches (19)</h2>
+          
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The exchange rate depreciated slightly (0.5 percent) comparing end-2022 to end-2023 but appreciated by 1.8 percent against the US dollar on average between 2022 and 2023."</div>
+              <div class="detail">
+                <span class="tag">Exchange_Rate</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p15</span>
+                Claim says <b>-0.5</b>, table shows <b>0.7</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The exchange rate depreciated slightly (0.5 percent) comparing end-2022 to end-2023 but appreciated by 1.8 percent against the US dollar on average between 2022 and 2023."</div>
+              <div class="detail">
+                <span class="tag">Exchange_Rate</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p15</span>
+                Claim says <b>1.8</b>, table shows <b>0.7</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Government expenditures fell short of projections by SR 605 million (2 percent of revised 2023 GDP), with large recurrent and capital expenditure shortfalls."</div>
+              <div class="detail">
+                <span class="tag">Government_Expenditures</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p15</span>
+                Claim says <b>-2</b>, table shows <b>-2.2</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Credit to the private sector—led by construction and retail segments—grew by 7.4 percent in 2023 compared to 4 percent in 2022."</div>
+              <div class="detail">
+                <span class="tag">Private_Sector_Credit</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_4_p47</span>
+                Claim says <b>7.4</b>, table shows <b>5.8</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Credit to the private sector—led by construction and retail segments—grew by 7.4 percent in 2023 compared to 4 percent in 2022."</div>
+              <div class="detail">
+                <span class="tag">Private_Sector_Credit</span>
+                <span class="tag">2022</span>
+                <span class="tag">Table_4_p47</span>
+                Claim says <b>4</b>, table shows <b>0.5</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Average annual inflation is projected at 1.2 percent in 2024, due to higher fuel and utility prices."</div>
+              <div class="detail">
+                <span class="tag">Average_Annual_Inflation</span>
+                <span class="tag">2024</span>
+                <span class="tag">Table_13_p58</span>
+                Claim says <b>1.2</b>, table shows <b>1.1</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Private credit is expected to grow 8.4 percent in 2024 and accelerate gradually to 9.6 percent by 2026."</div>
+              <div class="detail">
+                <span class="tag">Private_Credit_Growth</span>
+                <span class="tag">2024</span>
+                <span class="tag">Table_4_p47</span>
+                Claim says <b>8.4</b>, table shows <b>6.4</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Private credit is expected to grow 8.4 percent in 2024 and accelerate gradually to 9.6 percent by 2026."</div>
+              <div class="detail">
+                <span class="tag">Private_Credit_Growth</span>
+                <span class="tag">2026</span>
+                <span class="tag">Table_4_p47</span>
+                Claim says <b>9.6</b>, table shows <b>1.4</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Government revenue, excluding grants, is projected to be about 2.1 percentage points of GDP lower than projected at the first review."</div>
+              <div class="detail">
+                <span class="tag">Government_Revenue</span>
+                <span class="tag">unknown</span>
+                <span class="tag">Table_1_p15</span>
+                Claim says <b>-2.1</b>, table shows <b>-0.7</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The CBS intervened and purchased an equivalent of $59.3 million in 2023."</div>
+              <div class="detail">
+                <span class="tag">FX_Reserves</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p49</span>
+                Claim says <b>59.3</b>, table shows <b>214</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The exchange rate appreciated by 1.8 percent against the US dollar on average in 2023."</div>
+              <div class="detail">
+                <span class="tag">Exchange_Rate</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_3_p23</span>
+                Claim says <b>1.8</b>, table shows <b>0.7</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The overwhelming majority of these funds, $1.15 trillion, were devoted to climate change mitigation."</div>
+              <div class="detail">
+                <span class="tag">Climate_Mitigation_Finance</span>
+                <span class="tag">2022</span>
+                <span class="tag">Table_1_p49</span>
+                Claim says <b>1.15 trillion</b>, table shows <b>197</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"As a percentage of GDP, it improved from 7.4 percent to 7.2 percent over that period."</div>
+              <div class="detail">
+                <span class="tag">Current_Account</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p49</span>
+                Claim says <b>-7.2</b>, table shows <b>-158</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The implementation of the new salary grid has cost Government SR 171.9 million under wages and SR 23.8 million under goods and services in 2023."</div>
+              <div class="detail">
+                <span class="tag">Government_Expenditure</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p15</span>
+                Claim says <b>171.9</b>, table shows <b>3009</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The implementation of the new salary grid has cost Government SR 171.9 million under wages and SR 23.8 million under goods and services in 2023."</div>
+              <div class="detail">
+                <span class="tag">Government_Expenditure</span>
+                <span class="tag">2023</span>
+                <span class="tag">Table_1_p15</span>
+                Claim says <b>23.8</b>, table shows <b>3582</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The MPR was lowered by 25 basis points to 1.75 percent for the second quarter of 2024."</div>
+              <div class="detail">
+                <span class="tag">Monetary_Policy_Rate</span>
+                <span class="tag">2024</span>
+                <span class="tag">Table_1_p96</span>
+                Claim says <b>1.75</b>, table shows <b>60.6</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Subsequently, the interest rate on the SDF and SCF declined to 0.25 percent and 3.25 percent, correspondingly."</div>
+              <div class="detail">
+                <span class="tag">Standing_Deposit_Facility_Rate</span>
+                <span class="tag">2024</span>
+                <span class="tag">Table_1_p96</span>
+                Claim says <b>0.25</b>, table shows <b>60.6</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"Subsequently, the interest rate on the SDF and SCF declined to 0.25 percent and 3.25 percent, correspondingly."</div>
+              <div class="detail">
+                <span class="tag">Standing_Credit_Facility_Rate</span>
+                <span class="tag">2024</span>
+                <span class="tag">Table_1_p96</span>
+                Claim says <b>3.25</b>, table shows <b>60.6</b>
+              </div>
+            </div>
+            <div class="verification MISMATCH">
+              <div class="status">MISMATCH <span class="tag llm">LLM</span></div>
+              <div class="claim">"The authorities are aware of the need to rebuild fiscal buffers and remain committed to a debt anchor of 50 percent of GDP or less by 2030."</div>
+              <div class="detail">
+                <span class="tag">Government_Debt</span>
+                <span class="tag">2030</span>
+                <span class="tag">Table_13_p58</span>
+                Claim says <b>50</b>, table shows <b>42.7</b>
+              </div>
+            </div>
+        </div>
+
+  
+        <div class="section" style="border: 2px solid #6c5ce7;">
+          <h2 style="color: #6c5ce7;">Cross-Table Consistency (45 issues / 63 checks)</h2>
+          
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">effective interest rate (2024)</div>
+              <div class="detail"><b>4.3</b> (Table_13_p58) vs <b>4.5</b> (Table_1_p96)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">effective interest rate (2025)</div>
+              <div class="detail"><b>4.4</b> (Table_13_p58) vs <b>4.8</b> (Table_1_p96)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">effective interest rate (2026)</div>
+              <div class="detail"><b>4.4</b> (Table_13_p58) vs <b>4.8</b> (Table_1_p96)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">effective interest rate (2027)</div>
+              <div class="detail"><b>4.4</b> (Table_13_p58) vs <b>4.8</b> (Table_1_p96)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">effective interest rate (2028)</div>
+              <div class="detail"><b>4.4</b> (Table_13_p58) vs <b>4.9</b> (Table_1_p96)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">effective interest rate (2029)</div>
+              <div class="detail"><b>4.5</b> (Table_13_p58) vs <b>5.0</b> (Table_1_p96)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">domestic (2023)</div>
+              <div class="detail"><b>-106</b> (Table_1_p15) vs <b>174</b> (Table_9_p52)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2021)</div>
+              <div class="detail"><b>0</b> (Table_1_p49) vs <b>-3</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2022)</div>
+              <div class="detail"><b>0</b> (Table_1_p49) vs <b>-155</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2023)</div>
+              <div class="detail"><b>0</b> (Table_1_p49) vs <b>-105</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2024)</div>
+              <div class="detail"><b>0</b> (Table_1_p49) vs <b>-99</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2025)</div>
+              <div class="detail"><b>0</b> (Table_1_p49) vs <b>-146</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2026)</div>
+              <div class="detail"><b>0</b> (Table_1_p49) vs <b>-108</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2027)</div>
+              <div class="detail"><b>10</b> (Table_1_p49) vs <b>-129</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2028)</div>
+              <div class="detail"><b>10</b> (Table_1_p49) vs <b>-129</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">others (2029)</div>
+              <div class="detail"><b>10</b> (Table_1_p49) vs <b>-129</b> (Table_1_p49)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">total (2024)</div>
+              <div class="detail"><b>14.75</b> (Table_42_p144) vs <b>228</b> (Table_9_p52)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">total (2025)</div>
+              <div class="detail"><b>12.41</b> (Table_42_p144) vs <b>189</b> (Table_9_p52)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2019)</div>
+              <div class="detail"><b>4841</b> (Table_4_p47) vs <b>-873</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2020)</div>
+              <div class="detail"><b>7169</b> (Table_4_p47) vs <b>-868</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2021)</div>
+              <div class="detail"><b>9295</b> (Table_4_p47) vs <b>-600</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2022)</div>
+              <div class="detail"><b>1071</b> (Table_4_p47) vs <b>-115</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2023)</div>
+              <div class="detail"><b>963</b> (Table_4_p47) vs <b>-231</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2024)</div>
+              <div class="detail"><b>10258</b> (Table_4_p47) vs <b>-236</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2025)</div>
+              <div class="detail"><b>10988</b> (Table_4_p47) vs <b>-244</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2026)</div>
+              <div class="detail"><b>11619</b> (Table_4_p47) vs <b>-251</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">other depository corporations (2027)</div>
+              <div class="detail"><b>11630</b> (Table_4_p47) vs <b>-258</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2019)</div>
+              <div class="detail"><b>7987</b> (Table_4_p47) vs <b>567</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2020)</div>
+              <div class="detail"><b>11904</b> (Table_4_p47) vs <b>542</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2021)</div>
+              <div class="detail"><b>12454</b> (Table_4_p47) vs <b>663</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2022)</div>
+              <div class="detail"><b>13111</b> (Table_4_p47) vs <b>647</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2023)</div>
+              <div class="detail"><b>13967</b> (Table_4_p47) vs <b>674</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2024)</div>
+              <div class="detail"><b>14096</b> (Table_4_p47) vs <b>719</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2025)</div>
+              <div class="detail"><b>15485</b> (Table_4_p47) vs <b>750</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2026)</div>
+              <div class="detail"><b>13619</b> (Table_4_p47) vs <b>761</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">foreign currency deposits (2027)</div>
+              <div class="detail"><b>17313</b> (Table_4_p47) vs <b>788</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2019)</div>
+              <div class="detail"><b>4564</b> (Table_4_p47) vs <b>4.3</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2020)</div>
+              <div class="detail"><b>6408</b> (Table_4_p47) vs <b>9.4</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2021)</div>
+              <div class="detail"><b>7120</b> (Table_4_p47) vs <b>11.1</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2022)</div>
+              <div class="detail"><b>6910</b> (Table_4_p47) vs <b>3.4</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2023)</div>
+              <div class="detail"><b>6760</b> (Table_4_p47) vs <b>3.7</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2024)</div>
+              <div class="detail"><b>7095</b> (Table_4_p47) vs <b>3.7</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2025)</div>
+              <div class="detail"><b>7345</b> (Table_4_p47) vs <b>3.7</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2026)</div>
+              <div class="detail"><b>7745</b> (Table_4_p47) vs <b>3.7</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification INCONSISTENT">
+              <div class="status">INCONSISTENT</div>
+              <div class="claim">reserve money (2027)</div>
+              <div class="detail"><b>8217</b> (Table_4_p47) vs <b>3.7</b> (Table_4_p47)</div>
+            </div>
+            <div class="verification CONSISTENT">
+              <div class="status">CONSISTENT</div>
+              <div class="claim">real gdp growth (2024)</div>
+              <div class="detail">real gdp growth (2024): 3.7 across 2 tables</div>
+            </div>
+            <div class="verification CONSISTENT">
+              <div class="status">CONSISTENT</div>
+              <div class="claim">real gdp growth (2025)</div>
+              <div class="detail">real gdp growth (2025): 4.1 across 2 tables</div>
+            </div>
+            <div class="verification CONSISTENT">
+              <div class="status">CONSISTENT</div>
+              <div class="claim">real gdp growth (2026)</div>
+              <div class="detail">real gdp growth (2026): 3.7 across 2 tables</div>
+            </div>
+            <div class="verification CONSISTENT">
+              <div class="status">CONSISTENT</div>
+              <div class="claim">real gdp growth (2027)</div>
+              <div class="detail">real gdp growth (2027): 3.6 across 2 tables</div>
+            </div>
+            <div class="verification CONSISTENT">
+              <div class="status">CONSISTENT</div>
+              <div class="claim">real gdp growth (2028)</div>
+              <div class="detail">real gdp growth (2028): 3.5 across 2 tables</div>
+            </div><p style="color:#636e72; font-size:0.85rem; padding:8px 16px;">... and 13 more consistent checks</p>
+        </div>
+
+  <div class="section">
+    <h2>All Verifications</h2>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterResults('all')">All (189)</button>
+      <button class="filter-btn" onclick="filterResults('MATCH')">Match (51)</button>
+      <button class="filter-btn" onclick="filterResults('MISMATCH')">Mismatch (19)</button>
+      <button class="filter-btn" onclick="filterResults('UNVERIFIABLE')">Unverifiable (46)</button>
+      <button class="filter-btn" onclick="filterResults('QUALITATIVE')">Qualitative (73)</button>
+    </div>
+    
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Real GDP growth is estimated at 3.2 percent in 2023, compared to 3.8 percent projected at the time of the first review and average growth of about 6.9 percent in the 10 years prior to the pandemic."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 13</span> LLM: Exact match found in Table_1_p15 for Real GDP growth in 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Real GDP growth is estimated at 3.2 percent in 2023, compared to 3.8 percent projected at the time of the first review and average growth of about 6.9 percent in the 10 years prior to the pandemic."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 13</span> LLM: Exact match found in Table_1_p15 for Real GDP growth in 2023 First Review Projections.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Real GDP growth is estimated at 3.2 percent in 2023, compared to 3.8 percent projected at the time of the first review and average growth of about 6.9 percent in the 10 years prior to the pandemic."</div>
+          <div class="detail"><span class="tag">Real_GDP_growth</span><span class="tag">Table_13_p58</span><span class="tag">Page 13</span> Claim: 6.9 | Table: 6.8 (Nominal GDP growth (percent) / 2028)</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Total employment grew by 0.5 percent from Q4 2022 to Q4 2023, and the unemployment rate as of Q2 2023 was 3.2 percent."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Employment_Growth</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 13</span> LLM: Exact match found in Table_1_p15 for Employment Growth in 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Total employment grew by 0.5 percent from Q4 2022 to Q4 2023, and the unemployment rate as of Q2 2023 was 3.2 percent."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Unemployment_Rate</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 13</span> LLM: Exact match found in Table_1_p15 for Unemployment Rate in 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Core inflation dropped to -0.9 percent."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Core_Inflation</span><span class="tag">Table_13_p58</span><span class="tag">Page 13</span> LLM: Exact match found in Table_13_p58 for Core Inflation in 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Headline inflation has since reversed course, climbing to -0.17 percent in March 2024 (y/y) on the back of hikes in utility tariffs."</div>
+          <div class="detail"><span class="tag">Headline_Inflation</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 13</span> Claim: -0.17 | Table: -0.3 (Relative inflation / 2024)</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Total damages and losses are estimated at SCR 2.2 billion (7.4 percent of GDP) according to “Seychelles Complex Emergencies: Rapid Damage and Loss Assessment” (World Bank, December 2023)."</div>
+          <div class="detail"><span class="tag">Damages_and_Losses</span><span class="tag">2023</span><span class="tag">Page 13</span> Value 7.4 for Damages_and_Losses (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Public Utilities Corporation (PUC) has announced tariff increases for electricity (8.4 percent) and water and sewerage (9.2 percent) to reflect its new projected investment plans to expand capacity."</div>
+          <div class="detail"><span class="tag">Electricity_Tariff</span><span class="tag">Page 13</span> Value 8.4 for Electricity_Tariff (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Public Utilities Corporation (PUC) has announced tariff increases for electricity (8.4 percent) and water and sewerage (9.2 percent) to reflect its new projected investment plans to expand capacity."</div>
+          <div class="detail"><span class="tag">Water_and_Sewerage_Tariff</span><span class="tag">Page 13</span> Value 9.2 for Water_and_Sewerage_Tariff (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The CBS maintained the policy rate at 2 percent—where it had been since mid-2021—as the negative inflation was considered temporary and supply driven."</div>
+          <div class="detail"><span class="tag">Policy_Rate</span><span class="tag">Page 14</span> Value 2 for Policy_Rate (unknown) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"At end-March 2024, however, the CBS announced a reduction in the policy rate by 25 bps, citing weaker than projected growth and the need to support credit and the economy."</div>
+          <div class="detail"><span class="tag">Policy_Rate</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 14</span> Claim: -0.25 | Table: -0.3 (Relative inflation / 2024)</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The 2023 current account deficit is estimated at 7.2 percent of GDP—a marginal improvement relative to 2022, but weaker than the 5.4 percent projected at the first review."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Current_Account_Deficit</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 14</span> LLM: The value -7.2 for Current Account Deficit matches the value in Table_1_p15.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The 2023 current account deficit is estimated at 7.2 percent of GDP—a marginal improvement relative to 2022, but weaker than the 5.4 percent projected at the first review."</div>
+          <div class="detail"><span class="tag">Current_Account_Deficit</span><span class="tag">2023</span><span class="tag">Page 14</span> Value -5.4 for Current_Account_Deficit (2023) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Gross international reserves increased to $682 million in December 2023 (3.2 months of imports, 104 percent of ARA metric), from $639 million at end-2022 (102 percent of ARA metric)."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Gross_International_Reserves</span><span class="tag">2023</span><span class="tag">Table_1_p49</span><span class="tag">Page 14</span> LLM: The value 682 for Gross International Reserves matches the value in Table_1_p49.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Gross international reserves increased to $682 million in December 2023 (3.2 months of imports, 104 percent of ARA metric), from $639 million at end-2022 (102 percent of ARA metric)."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Gross_International_Reserves</span><span class="tag">2022</span><span class="tag">Table_1_p49</span><span class="tag">Page 14</span> LLM: The value 639 for Gross International Reserves matches the value in Table_1_p49.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The exchange rate depreciated slightly (0.5 percent) comparing end-2022 to end-2023 but appreciated by 1.8 percent against the US dollar on average between 2022 and 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Exchange_Rate</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 14</span> LLM: Claim value -0.5 does not match any table value within tolerance.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The exchange rate depreciated slightly (0.5 percent) comparing end-2022 to end-2023 but appreciated by 1.8 percent against the US dollar on average between 2022 and 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Exchange_Rate</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 14</span> LLM: Claim value 1.8 does not match any table value within tolerance.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In NEER and REER terms, the rupee appreciated by 1.2 percent and depreciated by 6.1 percent, respectively, on a YOY basis."</div>
+          <div class="detail"><span class="tag">NEER</span><span class="tag">Page 14</span> Value 1.2 for NEER (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In NEER and REER terms, the rupee appreciated by 1.2 percent and depreciated by 6.1 percent, respectively, on a YOY basis."</div>
+          <div class="detail"><span class="tag">REER</span><span class="tag">Page 14</span> Value -6.1 for REER (unknown) not found in any table</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Government expenditures fell short of projections by SR 605 million (2 percent of revised 2023 GDP), with large recurrent and capital expenditure shortfalls."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Government_Expenditures</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 15</span> LLM: Claim value -2 does not match table value -2.2 within tolerance.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Credit to the private sector—led by construction and retail segments—grew by 7.4 percent in 2023 compared to 4 percent in 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Private_Sector_Credit</span><span class="tag">2023</span><span class="tag">Table_4_p47</span><span class="tag">Page 15</span> LLM: Claim value 7.4 does not match table value 5.8 within tolerance.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Credit to the private sector—led by construction and retail segments—grew by 7.4 percent in 2023 compared to 4 percent in 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Private_Sector_Credit</span><span class="tag">2022</span><span class="tag">Table_4_p47</span><span class="tag">Page 15</span> LLM: Claim value 4 does not match table value 0.5 within tolerance.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The cost of credit remains high, with average lending rates of 9.7 percent at end-December 2023, reflecting the high spread between lending and deposit rates (about 7.7 ppt)."</div>
+          <div class="detail"><span class="tag">Lending_Rates</span><span class="tag">2023</span><span class="tag">Page 15</span> Value 9.7 for Lending_Rates (2023) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Real GDP growth is forecast at 3.7 percent in 2024—about 0.3 ppt lower than projected at the first review and accounting for the impact of the December 2023 floods and explosion."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 15</span> LLM: Value 3.7 in the claim matches exactly with the value in Table_13_p58 for Real GDP growth in 2024.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Growth is projected to rise to 4.1 percent in 2025 and stabilize around 3.5 percent in the medium term."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">2025</span><span class="tag">Table_13_p58</span><span class="tag">Page 15</span> LLM: Value 4.1 in the claim matches exactly with the value in Table_13_p58 for Real GDP growth in 2025.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Growth is projected to rise to 4.1 percent in 2025 and stabilize around 3.5 percent in the medium term."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">Table_13_p58</span><span class="tag">Page 15</span> LLM: Value 3.5 in the claim matches exactly with the value in Table_13_p58 for Real GDP growth in 2028, which is considered medium term.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Average annual inflation is projected at 1.2 percent in 2024, due to higher fuel and utility prices."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Average_Annual_Inflation</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 15</span> LLM: Value 1.2 in the claim does not match the value 1.1 in Table_13_p58 for Average Annual Inflation in 2024, exceeding the tolerance.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Gross foreign exchange reserves are projected to reach $751 million by end-2024, equivalent to 3.4 months of imports."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Gross_Foreign_Exchange_Reserves</span><span class="tag">2024</span><span class="tag">Table_4_p47</span><span class="tag">Page 16</span> LLM: Value 751 in the claim matches exactly with the value in Table_4_p47 for Gross international reserves in 2024.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Private credit is expected to grow 8.4 percent in 2024 and accelerate gradually to 9.6 percent by 2026."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Private_Credit_Growth</span><span class="tag">2024</span><span class="tag">Table_4_p47</span><span class="tag">Page 16</span> LLM: Value 8.4 in the claim does not match the value 6.4 in Table_4_p47 for Private Credit Growth in 2024, exceeding the tolerance.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Private credit is expected to grow 8.4 percent in 2024 and accelerate gradually to 9.6 percent by 2026."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Private_Credit_Growth</span><span class="tag">2026</span><span class="tag">Table_4_p47</span><span class="tag">Page 16</span> LLM: Value 9.6 in the claim does not match the value 1.4 in Table_4_p47 for Private Credit Growth in 2026, exceeding the tolerance.</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Projections for global commodity and transport prices are subject to downside risks from the conflict in the Middle East, Russia’s war in Ukraine and other regional conflicts."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Increasing competition in the global tourism industry, coupled with the potential for slower growth in traditional source markets or disruptions in new markets, pose further risks."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Should tourism decline, the drop in FX inflows could weaken the rupee and pass through to inflation."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"On the domestic side, financial stability risks may arise from large exposures, credit concentration, and high NPLs."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The El Niño phenomenon appears to be exacerbating the effects of climate change through unseasonably heavy rains."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Seychelles remains vulnerable to sea level rise and natural disasters via damage to coastal infrastructure and tourism."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Risks could arise should political tensions escalate in the runup to the 2025 elections."</div>
+          <div class="detail"><span class="tag">Page 16</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The average number of international flights has returned to its pre-pandemic level."</div>
+          <div class="detail"><span class="tag">Page 18</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The average length of stay for tourists has fully recovered to pre-pandemic levels."</div>
+          <div class="detail"><span class="tag">Page 18</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Cumulative inflation in Seychelles between 2021 and 2023 has been one of the lowest among similar countries."</div>
+          <div class="detail"><span class="tag">Page 19</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The steepest declines in 2023 were observed in housing, electricity, and utilities, recreation and culture, and transport."</div>
+          <div class="detail"><span class="tag">Page 19</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Government revenue, excluding grants, is projected to be about 2.1 percentage points of GDP lower than projected at the first review."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Government_Revenue</span><span class="tag">Table_1_p15</span><span class="tag">Page 20</span> LLM: Claim value of -2.1 is not found; closest value is -0.7, which is a mismatch.</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The Sovereign Risk Debt Sustainability Framework (SRDSF) indicates that Seychelles is at a moderate risk of sovereign stress, and debt is assessed to be sustainable with high probability."</div>
+          <div class="detail"><span class="tag">Page 21</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Fiscal policy will remain anchored by the primary fiscal balance, with a view to reducing public debt to 50 percent of GDP or less by the authorities’ target of 2030."</div>
+          <div class="detail"><span class="tag">Government_Debt</span><span class="tag">2030</span><span class="tag">Table_1_p49</span><span class="tag">Page 21</span> Claim: 50 | Table: 50 (CG Debt Amortization / 2027)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"VAT collections are expected to rise in 2024 and beyond as refunds diminish together with steps to streamline VAT registration and collection and enhance refund efficiency."</div>
+          <div class="detail"><span class="tag">Page 21</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The Ministry of Finance has estimated that SR 88.6 million (0.3 percent of GDP) was allocated for maintenance, repairs, and the reconstruction of both private residences and government housing units."</div>
+          <div class="detail"><span class="tag">Maintenance_Repairs_Allocation</span><span class="tag">Page 21</span> Value 88.6 for Maintenance_Repairs_Allocation (unknown) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The ratio of public and publicly guaranteed debt is projected to decline from 58.5 percent of GDP in 2023 to around 46 percent of GDP by 2030, barring new shocks."</div>
+          <div class="detail"><span class="tag">Government_Debt</span><span class="tag">2023</span><span class="tag">Table_13_p58</span><span class="tag">Page 23</span> Claim: 58.5 | Table: 58.5 (Public debt / 2023)</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The ratio of public and publicly guaranteed debt is projected to decline from 58.5 percent of GDP in 2023 to around 46 percent of GDP by 2030, barring new shocks."</div>
+          <div class="detail"><span class="tag">Government_Debt</span><span class="tag">2030</span><span class="tag">Page 23</span> Value 46 for Government_Debt (2030) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Exposure of the banking sector to government securities declined by 1.3 ppt, to 13.1 percent of assets in December 2023."</div>
+          <div class="detail"><span class="tag">Banking_Sector_Exposure</span><span class="tag">2023</span><span class="tag">Table_13_p58</span><span class="tag">Page 24</span> Claim: -1.3 | Table: -1.2 (Relative inflation / 2023)</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Exposure of the banking sector to government securities declined by 1.3 ppt, to 13.1 percent of assets in December 2023."</div>
+          <div class="detail"><span class="tag">Banking_Sector_Exposure</span><span class="tag">2023</span><span class="tag">Table_13_p58</span><span class="tag">Page 24</span> Claim: 13.1 | Table: 12.98 (Gross financing needs / 2023)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The mission considered the recent reduction in the CBS policy rate as appropriate given weaker growth and disinflation."</div>
+          <div class="detail"><span class="tag">Page 25</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The CBS intervened and purchased an equivalent of $59.3 million in 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">FX_Reserves</span><span class="tag">2023</span><span class="tag">Table_1_p49</span><span class="tag">Page 26</span> LLM: Claim value of 59.3 million not found; closest value is 214 million in the table, which is not a match.</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The current account narrowed slightly in 2023, compared to 2022 but was higher than anticipated at the time of the first review due the latter reflecting negative inflation."</div>
+          <div class="detail"><span class="tag">Page 26</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The authorities should continue to maintain a flexible exchange rate regime and build buffers against external shocks."</div>
+          <div class="detail"><span class="tag">Page 27</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"After experiencing a V-shaped recovery, economic growth is expected to moderate."</div>
+          <div class="detail"><span class="tag">Page 41</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Nominal interest rates remained unchanged as inflation remained moderate."</div>
+          <div class="detail"><span class="tag">Page 41</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Private sector credit continued to recover in line with economic growth and despite the tighter monetary policy stance generated by disinflation."</div>
+          <div class="detail"><span class="tag">Page 41</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The external position has improved with the recovery in tourism."</div>
+          <div class="detail"><span class="tag">Page 41</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Reserves projected to recover after falling due to lower tourism receipts and higher fuel and food import costs."</div>
+          <div class="detail"><span class="tag">Page 42</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Budget under execution should lead to fiscal surplus…"</div>
+          <div class="detail"><span class="tag">Page 42</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"…contributing to lowering debt vulnerability."</div>
+          <div class="detail"><span class="tag">Page 42</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The debt stock as percent of GDP is calculated in local currency."</div>
+          <div class="detail"><span class="tag">Page 52</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The RAM reflects staff views on the source of risks and overall level of concern as of the time of discussions with the authorities."</div>
+          <div class="detail"><span class="tag">Page 53</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The relative likelihood is the staff’s subjective assessment of the risks surrounding the baseline (“low” is meant to indicate a probability below 10 percent, “medium” a probability between 10 and 30 "</div>
+          <div class="detail"><span class="tag">Risk_Probability</span><span class="tag">Page 53</span> Value 10 for Risk_Probability (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The relative likelihood is the staff’s subjective assessment of the risks surrounding the baseline (“low” is meant to indicate a probability below 10 percent, “medium” a probability between 10 and 30 "</div>
+          <div class="detail"><span class="tag">Risk_Probability</span><span class="tag">Page 53</span> Value 30 for Risk_Probability (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The relative likelihood is the staff’s subjective assessment of the risks surrounding the baseline (“low” is meant to indicate a probability below 10 percent, “medium” a probability between 10 and 30 "</div>
+          <div class="detail"><span class="tag">Risk_Probability</span><span class="tag">Page 53</span> Value 50 for Risk_Probability (unknown) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Staff assesses Seychelles to be at a moderate risk of sovereign stress and debt is assessed to be sustainable with high probability."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Medium-term liquidity risks as analyzed by the GFN Financeability Module are moderate."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Gross financing needs are assessed to be lower compared to June 2023 DSA due to stronger than anticipated fiscal consolidation and higher GDP projections."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Seychelles faces limited access to concessional financing which can increase debt servicing costs."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Seychelles should also continue with policies to tackle risks arising from climate change."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Fund's support through RSF will help contain risks."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Health spending needs will also rise, in part due to high percentage of population suffering from substance abuse and its long-term generational effect."</div>
+          <div class="detail"><span class="tag">Page 55</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Prob. of false alarm, 2024-2029 (if stress predicted): 31.8 pct."</div>
+          <div class="detail"><span class="tag">Probability_of_False_Alarm</span><span class="tag">2024-2029</span><span class="tag">Page 60</span> Value 31.8 for Probability_of_False_Alarm (2024-2029) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Both of the medium-term tools indicate that risk is moderate."</div>
+          <div class="detail"><span class="tag">Page 60</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The fan chart analysis estimates risks to be moderate partly due to a high assessed probability of debt stabilization."</div>
+          <div class="detail"><span class="tag">Page 60</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The GFN module also indicates moderate risk for Seychelles in relation to its low average projected gross financing needs and relatively limited exposure of banks on government debt."</div>
+          <div class="detail"><span class="tag">Page 60</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"In a standard stress scenario, the natural disaster shock would elevate financing needs in the short term but the financing needs would stabilize."</div>
+          <div class="detail"><span class="tag">Page 60</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Seychelles’ current account deficit improved slightly in 2023 compared to 2022 but was larger than anticipated at the time of the first review due mostly to higher imports linked to tourism recovery a"</div>
+          <div class="detail"><span class="tag">Page 65</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Seychelles’ NIIP is estimated at -42 percent of GDP compared to -33 percent at end 2022."</div>
+          <div class="detail"><span class="tag">Net_International_Investment_Position</span><span class="tag">2023</span><span class="tag">Page 65</span> Value -42 for Net_International_Investment_Position (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Seychelles’ NIIP is estimated at -42 percent of GDP compared to -33 percent at end 2022."</div>
+          <div class="detail"><span class="tag">Net_International_Investment_Position</span><span class="tag">2022</span><span class="tag">Page 65</span> Value -33 for Net_International_Investment_Position (2022) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Tourist arrivals increased by about 6 percent compared to 2022, reaching 91 percent of the pre-pandemic peak of 384,204 in 2019."</div>
+          <div class="detail"><span class="tag">Tourist_Arrivals</span><span class="tag">2023</span><span class="tag">Table_1_p49</span><span class="tag">Page 66</span> Claim: 6 | Table: 6 (o/w: World Bank / 2023)</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Tourist arrivals increased by about 6 percent compared to 2022, reaching 91 percent of the pre-pandemic peak of 384,204 in 2019."</div>
+          <div class="detail"><span class="tag">Tourist_Arrivals</span><span class="tag">2023</span><span class="tag">Page 66</span> Value 91 for Tourist_Arrivals (2023) not found in any table</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The exchange rate appreciated by 1.8 percent against the US dollar on average in 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Exchange_Rate</span><span class="tag">2023</span><span class="tag">Table_3_p23</span><span class="tag">Page 67</span> LLM: The value for Exchange Rate in 2023 is not found in the tables, and the closest value is 0.7 which does not match the claim.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Gross International Reserves (GIR) at end-2023 were $681 million (3.2 months of imports, 104 percent of ARA metric), a slight increase from US$639 million at end-2022 (3.2 months of imports, 102 perce"</div>
+          <div class="detail"><span class="tag">Gross_International_Reserves</span><span class="tag">2023</span><span class="tag">Page 67</span> Value 681 for Gross_International_Reserves (2023) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Gross International Reserves (GIR) at end-2023 were $681 million (3.2 months of imports, 104 percent of ARA metric), a slight increase from US$639 million at end-2022 (3.2 months of imports, 102 perce"</div>
+          <div class="detail"><span class="tag">Gross_International_Reserves</span><span class="tag">2022</span><span class="tag">Table_1_p49</span><span class="tag">Page 67</span> Claim: 639 | Table: 639 (Gross international reserves with RSF / 2022)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The authorities should continue to maintain a flexible exchange rate regime and build up external buffers against external shocks."</div>
+          <div class="detail"><span class="tag">Page 65</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Seychelles’ international reserve holdings are assessed against standard reserve adequacy benchmark."</div>
+          <div class="detail"><span class="tag">Page 68</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In 2023, 38 CD activities were implemented in Seychelles and in FY 2024, a total of 31 CD activities is expected to take place."</div>
+          <div class="detail"><span class="tag">Capacity_Development_Activities</span><span class="tag">2023</span><span class="tag">Page 69</span> Value 38 for Capacity_Development_Activities (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In 2023, 38 CD activities were implemented in Seychelles and in FY 2024, a total of 31 CD activities is expected to take place."</div>
+          <div class="detail"><span class="tag">Capacity_Development_Activities</span><span class="tag">2024</span><span class="tag">Page 69</span> Value 31 for Capacity_Development_Activities (2024) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In May 2023, the Board approved a three-year arrangement for Seychelles under the Extended Fund Facility (EFF), in an amount equivalent to US$56 million, as well as a three-year arrangement under the "</div>
+          <div class="detail"><span class="tag">Extended_Fund_Facility</span><span class="tag">2023</span><span class="tag">Page 69</span> Value 56 for Extended_Fund_Facility (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In May 2023, the Board approved a three-year arrangement for Seychelles under the Extended Fund Facility (EFF), in an amount equivalent to US$56 million, as well as a three-year arrangement under the "</div>
+          <div class="detail"><span class="tag">Resilience_and_Sustainability_Facility</span><span class="tag">2023</span><span class="tag">Page 69</span> Value 46 for Resilience_and_Sustainability_Facility (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Tourism earnings reached U$989 million in 2023, about 46 percent of GDP or 49 percent of total exports of goods and services."</div>
+          <div class="detail"><span class="tag">Tourism_Earnings</span><span class="tag">2023</span><span class="tag">Page 71</span> Value 989 for Tourism_Earnings (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Tourism earnings reached U$989 million in 2023, about 46 percent of GDP or 49 percent of total exports of goods and services."</div>
+          <div class="detail"><span class="tag">GDP</span><span class="tag">2023</span><span class="tag">Page 71</span> Value 46 for GDP (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Tourism earnings reached U$989 million in 2023, about 46 percent of GDP or 49 percent of total exports of goods and services."</div>
+          <div class="detail"><span class="tag">Exports_of_Goods_and_Services</span><span class="tag">2023</span><span class="tag">Page 71</span> Value 49 for Exports_of_Goods_and_Services (2023) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"After contracting by over 60 percent in 2020 due to the pandemic, the tourism earnings bounced back with a strong recovery of 80 percent in 2021 and 60 percent in 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Tourism_Earnings</span><span class="tag">2020</span><span class="tag">Table_1_p15</span><span class="tag">Page 71</span> LLM: Value -60 found in Table_1_p15 for year 2020.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"After contracting by over 60 percent in 2020 due to the pandemic, the tourism earnings bounced back with a strong recovery of 80 percent in 2021 and 60 percent in 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Tourism_Earnings</span><span class="tag">2021</span><span class="tag">Table_1_p15</span><span class="tag">Page 71</span> LLM: Value 80 found in Table_1_p15 for year 2021.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"After contracting by over 60 percent in 2020 due to the pandemic, the tourism earnings bounced back with a strong recovery of 80 percent in 2021 and 60 percent in 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Tourism_Earnings</span><span class="tag">2022</span><span class="tag">Table_1_p15</span><span class="tag">Page 71</span> LLM: Value 60 found in Table_1_p15 for year 2022.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"In 2023, however, the sector expanded by only 6 percent in 2023, reaching 91 percent of its peak pre-pandemic earnings, and the authorities project the growth to reach about 5 percent in 2025 and plat"</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Tourism_Earnings</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 71</span> LLM: Value 6 found in Table_1_p15 for year 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"In 2023, however, the sector expanded by only 6 percent in 2023, reaching 91 percent of its peak pre-pandemic earnings, and the authorities project the growth to reach about 5 percent in 2025 and plat"</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Tourism_Earnings</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 71</span> LLM: Value 91 found in Table_1_p15 for year 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"In 2023, however, the sector expanded by only 6 percent in 2023, reaching 91 percent of its peak pre-pandemic earnings, and the authorities project the growth to reach about 5 percent in 2025 and plat"</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Tourism_Earnings</span><span class="tag">2025</span><span class="tag">Table_1_p15</span><span class="tag">Page 71</span> LLM: Value 5 found in Table_1_p15 for year 2025.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"In 2023, however, the sector expanded by only 6 percent in 2023, reaching 91 percent of its peak pre-pandemic earnings, and the authorities project the growth to reach about 5 percent in 2025 and plat"</div>
+          <div class="detail"><span class="tag">Tourism_Earnings</span><span class="tag">Page 71</span> Value 3 for Tourism_Earnings (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Globally, the price of vacation increased by about 14.5 in 2023 compared to previous year, and Seychelles followed similar increase."</div>
+          <div class="detail"><span class="tag">Vacation_Price</span><span class="tag">2023</span><span class="tag">Page 72</span> Value 14.5 for Vacation_Price (2023) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Seychelles ranked 62 out of 140 countries, lagging behind its major competitor, Mauritius, which ranked 54 in the overall ranking."</div>
+          <div class="detail"><span class="tag">Travel_and_Tourism_Competitiveness_Index</span><span class="tag">2019</span><span class="tag">Page 74</span> Value 62 for Travel_and_Tourism_Competitiveness_Index (2019) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"As of February 2024, there are direct flights to Seychelles from 14 countries servicing total of about 60 flights per week from these origins."</div>
+          <div class="detail"><span class="tag">Direct_Flights</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 74</span> Claim: 60 | Table: 60.0 (Public debt / 2024)</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"In comparison, there are 27 airports with direct flights to Mauritius from 19 other countries, in many cases from multiple airports from a country, providing total of about 130 flights per week."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Direct_Flights</span><span class="tag">2024</span><span class="tag">Table_1_p15</span><span class="tag">Page 74</span> LLM: The value of 130 flights per week matches exactly with the table data for 2024.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Mauritius also has 10 golf courses, compared to only two in Seychelles."</div>
+          <div class="detail"><span class="tag">Golf_Courses</span><span class="tag">Page 75</span> Value 2 for Golf_Courses (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The analysis focuses on the major tourist clientele, namely nationals of Germany, France, Italy, United Kingdom, Switzerland, and Russia who are mostly traditional clientele and comprise about 60 perc"</div>
+          <div class="detail"><span class="tag">Tourist_Arrivals</span><span class="tag">Page 76</span> Value 60 for Tourist_Arrivals (unknown) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The results of econometric exercise suggested that different factors determine tourism demand for visitors from each country."</div>
+          <div class="detail"><span class="tag">Page 78</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Income was an important determinant factor for tourism demand for the four largest visitors, Germany, France, Italy, and UK but not for Switzerland and Russia."</div>
+          <div class="detail"><span class="tag">Page 78</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Real exchange rate vis-à-vis Seychelles was an important determinant for tourism demand from Germany, Italy, and UK."</div>
+          <div class="detail"><span class="tag">Page 78</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The real exchange rate of the competitor Mauritius rufiyaa was an important factor only for Italy and Switzerland."</div>
+          <div class="detail"><span class="tag">Page 78</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"All countries were sensitive to the Covid-19 pandemic."</div>
+          <div class="detail"><span class="tag">Page 78</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"For Russia, the sign of the coefficient of real exchange rate vis-à-vis Seychelles rupee was positive, meaning that a real appreciation of Seychelles rupee was associated with increased demand for tou"</div>
+          <div class="detail"><span class="tag">Page 78</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"There are signs that Seychelles’ tourism sector may be approaching its tourist carrying capacity limits."</div>
+          <div class="detail"><span class="tag">Page 77</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"All four sub-indices monitoring the physical-ecological aspect of the carrying capacity show that Seychelles may be reaching or has exceeded carrying capacity limits."</div>
+          <div class="detail"><span class="tag">Page 79</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"For the people-users per meter of beach (PUB) index, Seychelles would be 1.14 if the entire coastline is considered as beach, and 2.19 if only Mahe, Praslin and La Digue are treated as beaches hosting"</div>
+          <div class="detail"><span class="tag">PUB_Index</span><span class="tag">Page 79</span> Value 1.14 for PUB_Index (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"For the people-users per meter of beach (PUB) index, Seychelles would be 1.14 if the entire coastline is considered as beach, and 2.19 if only Mahe, Praslin and La Digue are treated as beaches hosting"</div>
+          <div class="detail"><span class="tag">PUB_Index</span><span class="tag">Page 79</span> Value 2.19 for PUB_Index (unknown) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Tourism is the main pillar of Seychelles’ economy, and how to maintain its competitiveness, i.e., how to increase tourism earnings going forward, is a key policy question."</div>
+          <div class="detail"><span class="tag">Page 80</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Given the constraints on tourism growth through higher volume, the government’s tourism policy will need to focus more on how to increase earnings per tourists rather than total number of tourist arri"</div>
+          <div class="detail"><span class="tag">Page 80</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The Climate Policy Initiative estimates that average annual climate finance flows reached almost $1.27 trillion in 2022, almost double the levels from 2020."</div>
+          <div class="detail"><span class="tag">Climate_Finance_Flows</span><span class="tag">2022</span><span class="tag">Page 89</span> Value 1.27 trillion for Climate_Finance_Flows (2022) not found in any table</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The overwhelming majority of these funds, $1.15 trillion, were devoted to climate change mitigation."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Climate_Mitigation_Finance</span><span class="tag">2022</span><span class="tag">Table_1_p49</span><span class="tag">Page 89</span> LLM: Claim value is in trillions, but the table value is in millions, hence they do not match.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Seychelles participates in four regional-level projects, amassing a total of $34.3 million."</div>
+          <div class="detail"><span class="tag">Regional_Project_Funding</span><span class="tag">2024</span><span class="tag">Page 90</span> Value 34.3 million for Regional_Project_Funding (2024) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Climate Analytics indicates that approximately $230 million has been disbursed, which is less than 9 percent of the total amount approved by the Green Climate Fund for the LDCs, after 5.5 years of ope"</div>
+          <div class="detail"><span class="tag">GCF_Disbursement</span><span class="tag">Page 90</span> Value 230 million for GCF_Disbursement (unknown) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The Blue Bond, issued in 2018, illustrates difficulties in disbursing funds at the local level."</div>
+          <div class="detail"><span class="tag">Page 92</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Some 80 percent of the proceeds from the Blue Bond was used to establish the Blue Investment Fund (BIF) in 2020."</div>
+          <div class="detail"><span class="tag">Blue_Bond_Proceeds</span><span class="tag">2020</span><span class="tag">Page 92</span> Value 80 percent for Blue_Bond_Proceeds (2020) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The program offers up to $3 million at 4 percent interest rate to help eligible entities scale up their business."</div>
+          <div class="detail"><span class="tag">BIF_Loan_Offer</span><span class="tag">Page 92</span> Value 3 million for BIF_Loan_Offer (unknown) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"By 2024, the debt-stabilizing primary balance is projected at 0.4 percent of GDP, changing to -0.8 percent of GDP by 2029."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Primary_Balance</span><span class="tag">2024</span><span class="tag">Table_1_p96</span><span class="tag">Page 95</span> LLM: Value 0.4 found in Table_1_p96 for year 2024.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"By 2024, the debt-stabilizing primary balance is projected at 0.4 percent of GDP, changing to -0.8 percent of GDP by 2029."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Primary_Balance</span><span class="tag">2029</span><span class="tag">Table_1_p96</span><span class="tag">Page 95</span> LLM: Value -0.8 found in Table_1_p96 for year 2029.</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The debt target is subsequently derived by calculating the gap between the maximum debt threshold and an estimated safety margin."</div>
+          <div class="detail"><span class="tag">Page 99</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Seychelles’ use of a medium-term debt target, set at 50 percent, has been a critical element of successful fiscal consolidation since 2008."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Debt_Target</span><span class="tag">2008</span><span class="tag">Table_1_p49</span><span class="tag">Page 101</span> LLM: Value 50 found in Table_1_p49 for year 2008.</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Maintaining ample fiscal buffers will provide greater flexibility to address shocks without jeopardizing fiscal sustainability or development objectives."</div>
+          <div class="detail"><span class="tag">Page 101</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Total revenue excluding grants was lower by SR 110.7 million compared to the program estimate."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Total_Revenue_excluding_Grants</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 105</span> LLM: Value -110.7 found in Table_1_p15 for year 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Revenue excluding grants has reached 31.5 percent of GDP, up from 29.5 percent in 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Total_Revenue_excluding_Grants</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 105</span> LLM: Value 31.5 found in Table_1_p15 for year 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"In February 2024, year-on-year inflation rate stood at negative 0.3 percent whilst the 12-month average inflation rate was negative 1.5 percent."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Inflation_rate</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 105</span> LLM: Value -0.3 found in Table_13_p58 for year 2024.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"In February 2024, year-on-year inflation rate stood at negative 0.3 percent whilst the 12-month average inflation rate was negative 1.5 percent."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Inflation_rate</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 105</span> LLM: Value -1.5 found in Table_13_p58 for year 2024.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"As a percentage of GDP, it improved from 7.4 percent to 7.2 percent over that period."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Current_Account</span><span class="tag">2023</span><span class="tag">Table_1_p49</span><span class="tag">Page 108</span> LLM: The claim value of -7.2% does not match the table value of -158 million USD for the current account deficit.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Gross International Reserves (GIR) stood at US$736 million as at end-March 2024, representing an increase of 7.8 percent compared to US$682 million as at end-December 2023."</div>
+          <div class="detail"><span class="tag">Gross_International_Reserves</span><span class="tag">2024</span><span class="tag">Page 108</span> Value 736 for Gross_International_Reserves (2024) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The banking industry remained well capitalised as at end of January 2024 although NPLs continued to be elevated."</div>
+          <div class="detail"><span class="tag">Page 108</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Return on Assets and Return on Equity increased to stand at 4.1 percent and 41 percent, respectively."</div>
+          <div class="detail"><span class="tag">Return_on_Assets</span><span class="tag">Page 109</span> Value 4.1 for Return_on_Assets (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Return on Assets and Return on Equity increased to stand at 4.1 percent and 41 percent, respectively."</div>
+          <div class="detail"><span class="tag">Return_on_Equity</span><span class="tag">Page 109</span> Value 41 for Return_on_Equity (unknown) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The liquidity position of the banking sector remained strong, with all banks maintaining a liquid asset to total liabilities ratio well above the minimum requirement of 20 percent."</div>
+          <div class="detail"><span class="tag">Page 109</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Guaranteed debt is anticipated to also increase over the medium term as the Government continues to provide guarantees to the Development Bank of Seychelles, by an average of about 0.7 percent annuall"</div>
+          <div class="detail"><span class="tag">Guaranteed_Debt</span><span class="tag">Page 110</span> Value 0.7 for Guaranteed_Debt (unknown) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The budget 2024 aims at achieving a primary surplus of 1 percent of GDP."</div>
+          <div class="detail"><span class="tag">Primary_Surplus</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 111</span> Claim: 1 | Table: 1.1 (Inflation (GDP deflator; percent) / 2024)</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The implementation of the new salary grid has cost Government SR 171.9 million under wages and SR 23.8 million under goods and services in 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Government_Expenditure</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 112</span> LLM: Claim value of 171.9 million is not found; closest value is 3009 million for wages.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The implementation of the new salary grid has cost Government SR 171.9 million under wages and SR 23.8 million under goods and services in 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Government_Expenditure</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 112</span> LLM: Claim value of 23.8 million is not found; closest value is 3582 million for goods and services.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"This has resulted in a savings of SR 41 million or 0.1 percent of GDP."</div>
+          <div class="detail"><span class="tag">Government_Savings</span><span class="tag">2023</span><span class="tag">Page 112</span> Value 41 for Government_Savings (2023) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"This has resulted in a savings of SR 41 million or 0.1 percent of GDP."</div>
+          <div class="detail"><span class="tag">Government_Savings</span><span class="tag">2023</span><span class="tag">Table_13_p58</span><span class="tag">Page 112</span> Claim: 0.1 | Table: 0.0 (Contingent liabilities / 2023)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The Government remains committed to maintaining a resilient fiscal consolidation that will enable debt to continue on its downward trajectory."</div>
+          <div class="detail"><span class="tag">Page 110</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"The transfers to state-owned enterprises are being reduced significantly from 2.0 percent of GDP in 2020 to 0.16 percent forecasted for the year 2023."</div>
+          <div class="detail"><span class="tag">Transfers_to_SOEs</span><span class="tag">2020</span><span class="tag">Page 118</span> Value 2.0 for Transfers_to_SOEs (2020) not found in any table</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The transfers to state-owned enterprises are being reduced significantly from 2.0 percent of GDP in 2020 to 0.16 percent forecasted for the year 2023."</div>
+          <div class="detail"><span class="tag">Transfers_to_SOEs</span><span class="tag">2023</span><span class="tag">Table_9_p52</span><span class="tag">Page 118</span> Claim: 0.16 | Table: 0.3 (Non-Paris Club / 2023_Percent GDP)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The new Public Enterprise act was enacted on the 31st of May 2023."</div>
+          <div class="detail"><span class="tag">Page 118</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The 2022 annual report is expected to be published by mid of April 2024."</div>
+          <div class="detail"><span class="tag">Page 118</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The annual report has presented the overall financial performance, including outstanding debt, of Public Enterprises based on their audited financial statement."</div>
+          <div class="detail"><span class="tag">Page 118</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The MPR was lowered by 25 basis points to 1.75 percent for the second quarter of 2024."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Monetary_Policy_Rate</span><span class="tag">2024</span><span class="tag">Table_1_p96</span><span class="tag">Page 120</span> LLM: Claim value of 1.75 percent is not found; closest value is 60.6 million for nominal gross public debt.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Subsequently, the interest rate on the SDF and SCF declined to 0.25 percent and 3.25 percent, correspondingly."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Standing_Deposit_Facility_Rate</span><span class="tag">2024</span><span class="tag">Table_1_p96</span><span class="tag">Page 120</span> LLM: Claim value of 0.25 percent is not found; closest value is 60.6 million for nominal gross public debt.</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"Subsequently, the interest rate on the SDF and SCF declined to 0.25 percent and 3.25 percent, correspondingly."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Standing_Credit_Facility_Rate</span><span class="tag">2024</span><span class="tag">Table_1_p96</span><span class="tag">Page 120</span> LLM: Claim value of 3.25 percent is not found; closest value is 60.6 million for nominal gross public debt.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"R450 million was withdrawn from the system."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Liquidity_Withdrawal</span><span class="tag">2023</span><span class="tag">Table_4_p47</span><span class="tag">Page 121</span> LLM: The value of 450 million matches the 'Other (parastatals)' row in Table 4 for the year 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"CBS purchased an equivalent of US$21 million as at end-March 2024."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Foreign_Exchange_Reserves</span><span class="tag">2024</span><span class="tag">Table_1_p96</span><span class="tag">Page 122</span> LLM: The value of 21 million matches the 'Gross international reserves with RSF' row in Table 1 for the year 2024.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The outstanding value of restructured loans has maintained a downward trajectory, declining from R2.8 billion in December 2022 to stand at R2.2 billion as at end-December 2023."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Restructured_Loans</span><span class="tag">2023</span><span class="tag">Table_1_p96</span><span class="tag">Page 122</span> LLM: The value of 2.2 billion matches the 'Total change in official reserves (with RSF, increase: +)' row in Table 1 for the year 2023.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"This amounted to 20 percent of the industry's total loans and advances, down from 27 percent in December 2022."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Restructured_Loans_Percentage</span><span class="tag">2023</span><span class="tag">Table_1_p96</span><span class="tag">Page 122</span> LLM: The value of 20 percent matches the 'Total change in official reserves (with RSF, increase: +)' row in Table 1 for the year 2023.</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"CBS remains committed to a floating exchange rate and will only intervene to facilitate orderly market conduct and reserve accumulation."</div>
+          <div class="detail"><span class="tag">Page 121</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The CBS considers the prevailing monetary policy stance appropriate but remains cognizant of shocks that may alter the inflation outlook and stands ready to adjust its policies if necessary."</div>
+          <div class="detail"><span class="tag">Page 120</span> No numeric values to verify</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Research shows that operational energy use in buildings represent around 30 percent of the final energy consumption."</div>
+          <div class="detail"><span class="tag">Energy_Consumption</span><span class="tag">Page 130</span> Value 30 for Energy_Consumption (unknown) not found in any table</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"Funds for additional support for green finance initiatives between 2025-2027 are SR 90m, this is under the social programmes of government and will be targeting individuals."</div>
+          <div class="detail"><span class="tag">Green_Finance</span><span class="tag">2025-2027</span><span class="tag">Page 131</span> Value 90 for Green_Finance (2025-2027) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The government will introduce additional green fiscal incentives to promote climate resilience and environmental sustainability."</div>
+          <div class="detail"><span class="tag">Page 131</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The photovoltaic (PV) financial rebate scheme launched in May 2014 has been put in place as an incentive to encourage residential and commercial premises to install PV systems connected to the nationa"</div>
+          <div class="detail"><span class="tag">Page 131</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The primary balance target will be adjusted upward (downward) by the surplus (shortfall) in disbursements of grants relative to the baseline projection."</div>
+          <div class="detail"><span class="tag">Page 139</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The government revenue floor will be adjusted downward by the amount equivalent to the shortfall in nominal gross domestic product, in percentage terms, compared to the program projections."</div>
+          <div class="detail"><span class="tag">Page 139</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The floor on the CBS’s NIR will be adjusted upward (downward) by the amount by which the external non-project loans, including the RSF, and non-project cash grants exceeds (falls short of) the amounts"</div>
+          <div class="detail"><span class="tag">Page 140</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The floor will also be adjusted upwards (downwards) by the amount that external debt service payments fall short of (exceed) the amounts assumed in the program."</div>
+          <div class="detail"><span class="tag">Page 140</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Real growth for 2023 is estimated at 3.2 percent and forecast at 3.7 percent for 2024."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 148</span> LLM: The value 3.2 for Real GDP growth in 2023 matches the table.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Real growth for 2023 is estimated at 3.2 percent and forecast at 3.7 percent for 2024."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Real_GDP_growth</span><span class="tag">2024</span><span class="tag">Table_1_p15</span><span class="tag">Page 148</span> LLM: The value 3.7 for Real GDP growth in 2024 matches the table.</div>
+        </div>
+        <div class="verification UNVERIFIABLE">
+          <div class="status">UNVERIFIABLE</div>
+          <div class="claim">"A preliminary World Bank report estimates the cost at 7.4 percent of GDP (2023)."</div>
+          <div class="detail"><span class="tag">GDP</span><span class="tag">2023</span><span class="tag">Page 148</span> Value 7.4 for GDP (2023) not found in any table</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The previous growth forecast was revised down mainly due to the December industrial zone explosion and significant flooding in the north of Mahé."</div>
+          <div class="detail"><span class="tag">Page 148</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"Seychelles has enjoyed relatively strong growth and high living standards over a long period but recognizes the threats to that trajectory given its heavy reliance on external sectors through import a"</div>
+          <div class="detail"><span class="tag">Page 148</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The current account deficit in 2023 was broadly unchanged from 2022 and is projected to be at a similar level (7.3 percent) in 2024."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Current_Account</span><span class="tag">2024</span><span class="tag">Table_1_p49</span><span class="tag">Page 149</span> LLM: The value -7.3 for Current Account in 2024 matches the table.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"Fiscal performance has exceeded the program forecast. The primary balance in 2023 stood at 1.7 percent of GDP compared to a forecast of zero."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Primary_Balance</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 149</span> LLM: The value 1.7 for Primary Balance in 2023 matches the table.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The Seychelles rupee appreciated by 1.8 percent against the US dollar relative to 2022."</div>
+          <div class="detail"><span class="tag">Exchange_Rate</span><span class="tag">2023</span><span class="tag">Table_9_p52</span><span class="tag">Page 149</span> Claim: 1.8 | Table: 1.7 (o/w: France / 2023_Percent total debt)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The overall outlook while favorable remains vulnerable to external shocks."</div>
+          <div class="detail"><span class="tag">Page 149</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The authorities are dedicated to continuing fiscal consolidation; budgetary reforms will enhance public financial management delivery and facilitate investment and growth."</div>
+          <div class="detail"><span class="tag">Page 149</span> No numeric values to verify</div>
+        </div>
+        <div class="verification MISMATCH">
+          <div class="status">MISMATCH</div>
+          <div class="claim">"The authorities are aware of the need to rebuild fiscal buffers and remain committed to a debt anchor of 50 percent of GDP or less by 2030."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Government_Debt</span><span class="tag">2030</span><span class="tag">Table_13_p58</span><span class="tag">Page 149</span> LLM: The value in the table for Government Debt in 2030 is 42.7, which does not match the claim value of 50.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"The Central Bank of Seychelles (CBS) reduced its Monetary Policy Rate from 2.0 percent to 1.75 percent for the second quarter of 2024 to stimulate further economic activity given the inflation outlook"</div>
+          <div class="detail"><span class="tag">Monetary_Policy_Rate</span><span class="tag">2024</span><span class="tag">Table_13_p58</span><span class="tag">Page 150</span> Claim: 1.75 | Table: 1.8 (Real interest rate / 2024)</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"As at end 2023, Gross Reserves were US$682 million, with Net International Reserves (NIR) (US$529 million), exceeding the program target by US$52 million."</div>
+          <div class="detail"><span class="tag llm">LLM</span><span class="tag">Gross_Reserves</span><span class="tag">2023</span><span class="tag">Table_9_p52</span><span class="tag">Page 150</span> LLM: The value for Gross Reserves in 2023 matches the claim value.</div>
+        </div>
+        <div class="verification MATCH">
+          <div class="status">MATCH</div>
+          <div class="claim">"As at end 2023, Gross Reserves were US$682 million, with Net International Reserves (NIR) (US$529 million), exceeding the program target by US$52 million."</div>
+          <div class="detail"><span class="tag">Net_International_Reserves</span><span class="tag">2023</span><span class="tag">Table_1_p15</span><span class="tag">Page 150</span> Claim: 529 | Table: 529 (Other flows / 2023_Outturn)</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"CBS remains committed to financial stability."</div>
+          <div class="detail"><span class="tag">Page 150</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The Transformative Economic Agenda aims to diversify the economic base, and improve value addition and synergies in existing sectors."</div>
+          <div class="detail"><span class="tag">Page 151</span> No numeric values to verify</div>
+        </div>
+        <div class="verification QUALITATIVE">
+          <div class="status">QUALITATIVE</div>
+          <div class="claim">"The authorities remain committed to long run targets under the Nationally Determined Contribution with the RSF being a catalyst of the process."</div>
+          <div class="detail"><span class="tag">Page 151</span> No numeric values to verify</div>
+        </div>
+  </div>
+
+  <div class="section">
+    <h2>Graph Statistics</h2>
+    <p style="font-size: 0.9rem; color: #636e72;">
+      300 nodes (152 claims, 20 tables, 69 variables, 59 cells)
+      &middot; 314 edges
+      &middot; 63 cross-table checks
+    </p>
+  </div>
+</div>
+
+<script>
+function filterResults(status) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.verification').forEach(el => {
+    if (status === 'all' || el.classList.contains(status)) {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
